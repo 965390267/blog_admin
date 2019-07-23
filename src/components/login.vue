@@ -1,5 +1,4 @@
 <template>
-  
          <div class="page-container">
             <h1  @click="logout">Login</h1>
             <form action="" method="post">
@@ -15,18 +14,14 @@
                     <a class="twitter" href=""></a>
                 </p>
             </div>
-             <div class="desweb">
-                
+             <div class="desweb">              
                 <p>
                     <a class="facebook" href="">Copyright&nbsp;&nbsp;㉢&nbsp;&nbsp;ZZH博客后台管理系统. All Rights Reserved.</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="twitter" href="">滇ICP备案:18003157</a>
                 </p>
             </div>
             <div class="bgimg"></div>
-        </div>
-      
-
-      
+        </div>   
 </template>
 
 <script>
@@ -85,6 +80,8 @@ export default {
               });
             }
           }).catch(err=>{
+            console.log(err);
+            
              this.$message({
                 message: "服务器错误",
                 type: "warning"

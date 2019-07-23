@@ -9,11 +9,11 @@ import photo from '../components/bodyitem/photo'
 import liuyan from '../components/bodyitem/liuyan'
 import music from '../components/bodyitem/music'
 import suibi from '../components/bodyitem/suibi'
-
 import setting from '../components/bodyitem/setting'
+import error from '../components/bodyitem/error'
 Vue.use(Router)
 
-export default new Router({
+const router= new Router({
   routes: [
     {
       path: '/',
@@ -55,8 +55,22 @@ export default new Router({
         path: '/main/setting',
         name: 'setting',
         component: setting
+      },{
+        path: '*',
+        name: '404',
+        component: error
       }
       ]
     }
   ]
 })
+
+router.beforeEach((to,from,next)=>{
+const isLogin=localStorage.getItem('token')?true:false;
+if(to.path=='/'||to.path=='/register'){
+  next()
+}else{
+  isLogin?next():next('/')
+}
+})
+export default router;

@@ -4,11 +4,7 @@
     <left-aside ref='changemove'></left-aside>
     <body-section ref='addwidth'></body-section>
     <footer-nav></footer-nav>
-    
-    </section>
-
-
-      
+    </section>  
 </template>
 
 <script>
