@@ -13,7 +13,7 @@
            <img src="@/assets/img/ui-sam.jpg" class="img-circle" width="60">
            </p>   
            
-       <h5 class="centered">{{username}}</h5>
+       <h5 class="username">{{username}}</h5>
 
        <el-menu-item index="1" route="/main">
         <i class="el-icon-menu"></i>
@@ -99,6 +99,7 @@ this. getusermes()
   width: 200px;
   height: 100%;
   /* background: rgb(66, 74, 93); */
+  box-shadow: 1px 0px 20px rgba(0,0,0,0.08);
 }
 .iconfont::before{
   font-size: 18px;
@@ -113,10 +114,13 @@ this. getusermes()
         vertical-align: middle;
         box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12);
 }
-.centered {
+.username {
     text-align: center;
     letter-spacing: 3px;
       margin:8px 0;
+}
+.el-menu-item{
+      font-weight: 700;
 }
 </style>
 

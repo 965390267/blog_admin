@@ -9,7 +9,7 @@
      
    </div>
   
-    <footer-nav></footer-nav>
+    <!-- <footer-nav></footer-nav> -->
     </div>  
    
 </template>

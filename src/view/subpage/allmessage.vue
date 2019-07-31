@@ -1,6 +1,9 @@
 <template>
   <div class="messagewrap">
-  信息总览
+    <h3 class="title">Gallery</h3>
+   <!-- <mu-paper class="pic-list-wrap"  :z-depth="5">
+     <div class="pic-list" :style="{background: 'url('+carouselImg1+')',backgroundSize:'cover'}"></div>
+   </mu-paper> -->
   </div>
 </template>
 <script>
@@ -13,7 +16,11 @@ export default {
 
   data() {
     return {
-      visitnums: ""
+      visitnums: "",
+      carouselImg1:'http://img.zangzhihong.com/background1.jpg',
+      carouselImg2:'http://img.zangzhihong.com/background2.jpg',
+      carouselImg3:'http://img.zangzhihong.com/background3.jpg',
+      carouselImg4:'http://img.zangzhihong.com/background4.jpg'
     };
   },
   methods: {
@@ -31,8 +38,10 @@ export default {
 };
 </script>
 <style scoped>
-.messagewrap h3 {
-  font-family: "Ruda", sans-serif;
+
+.messagewrap .title{
+font-family: 'Marck Script', cursive;
+    letter-spacing: 1px;
   font-size: 24px;
   color: rgb(121, 121, 121);
   text-align: center;
@@ -45,10 +54,17 @@ export default {
   border: 0;
   border-top: 1px solid #797979;
 }
-.col-md-2 h3 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.bannerheight{
+  height: 200px;
+}
+.pic-list-wrap{
+  width: 180px;
+  height: 160px;
+}
+.pic-list{
+  width: 180px;
+  height: 160px;
+  
 }
 </style>
 

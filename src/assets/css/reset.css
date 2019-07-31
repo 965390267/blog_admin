@@ -31,6 +31,9 @@ body {
     font-family: 'Ruda', sans-serif;
     font-size:13px;
     line-height: 1.42857143;
+    background: #f2f2f2 url('../img/blueprint.png');
+    background-attachment: fixed;
+    z-index: -1;
 }
 ::-webkit-scrollbar {
     width: 4px;
