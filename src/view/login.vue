@@ -10,14 +10,14 @@
             <div class="connect">
                 <p>Or connect with:</p>
                 <p>
-                    <a class="facebook" href=""></a>
-                    <a class="twitter" href=""></a>
+                    <a class="facebook" ></a>
+                    <a class="twitter" ></a>
                 </p>
             </div>
              <div class="desweb">              
                 <p>
-                    <a class="facebook" href="">Copyright&nbsp;&nbsp;㉢&nbsp;&nbsp;ZZH博客后台管理系统. All Rights Reserved.</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="twitter" href="">滇ICP备案:18003157</a>
+                    <a class="facebook">Copyright&nbsp;&nbsp;㉢&nbsp;&nbsp;ZZH博客后台管理系统. All Rights Reserved.</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="twitter" >滇ICP备案:18003157</a>
                 </p>
             </div>
             <div class="bgimg"></div>
@@ -39,7 +39,7 @@ export default {
         console.log(res);
       });
     },
-    enter() {
+    enter() { this.$router.push({ path: "/main" });
       if (this.username == "" && this.password == "") {
         this.$message({
           message: "用户名和密码不能为空",

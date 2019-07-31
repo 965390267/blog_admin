@@ -23,7 +23,7 @@ const loadingHidden=()=>{
 }
 axios.interceptors.request.use(config => {
         // element ui Loading方法
-        loadingShow()
+        // loadingShow()
         if(localStorage.getItem('token')){
             config.headers.Authorization=localStorage.getItem('token')
         }
@@ -36,22 +36,22 @@ axios.interceptors.request.use(config => {
     })
     // http响应拦截器
 axios.interceptors.response.use(data => { // 响应成功关闭loading
-    loadingHidden()
+    // loadingHidden()
     return data
 }, error => {
-    loadingHidden()
+    // loadingHidden()
     Message.error({
         message: '加载失败'
     })
-    const {status}=error.response;
-    if(status==401){
-        Message.error({
-            message: 'token失效'
-        })
-        localStorage.removeItem('token')
-        router.push('/')
-    }
+    // const {status}=error.response;
+    // if(status==401){
+    //     Message.error({
+    //         message: 'token失效'
+    //     })
+    //     localStorage.removeItem('token')
+    //     router.push('/')
+    // }
     return Promise.reject(error)
 })
 
-export {axios}
+export default axios;

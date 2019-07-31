@@ -3,20 +3,27 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+/* 自定义样式引入 */
 import './assets/css/reset.css'
-import  './assets/css/style.css'
-import './assets/css/loginstyle.css'
-import  './assets/css/style-responsive.css'
 import  './assets/icon/iconfont.css'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import {axios} from './http/index'
-Vue.prototype.$http=axios;
-console.log(axios);
+/* 自定义样式引入 */
+/* element相关按需引入 */
+import element from './element'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(element);
+/* element相关按需引入 */
+
+/* muse ui完整引入 */
+import MuseUI from 'muse-ui';
+import 'muse-ui/dist/muse-ui.css';
+
+Vue.use(MuseUI);
+/* muse ui完整引入 */
+import axios from './fetch'/* axios引入，加入拦截器 */
+Vue.prototype.$http=axios;/* 挂载到vue的原型上 */
 
 Vue.config.productionTip = false;
 
-Vue.use(ElementUI);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

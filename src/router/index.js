@@ -1,16 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from '@/components/login'
-import main from '../components/main'
-import allmessage from '../components/bodyitem/allmessage'
-import sendarticle from '../components/bodyitem/sendarticle'
-import articlelist from '../components/bodyitem/articlelist'
-import photo from '../components/bodyitem/photo'
-import liuyan from '../components/bodyitem/liuyan'
-import music from '../components/bodyitem/music'
-import suibi from '../components/bodyitem/suibi'
-import setting from '../components/bodyitem/setting'
-import error from '../components/bodyitem/error'
 Vue.use(Router)
 
 const router= new Router({
@@ -18,59 +7,60 @@ const router= new Router({
     {
       path: '/',
       name: 'login',
-      component: login
-    },{
+      component: ()=>import('@/view/login')
+    },
+    {
       path:'/main',
       name:'main',
-      component:main,
+      component: ()=>import('@/view/main'),
       children:[{
         path: '/main',
         name: 'allmessage',
-        component: allmessage
+        component: ()=>import('@/view/subpage/allmessage')
       },{
         path: '/main/sendarticle',
         name: 'sendarticle',
-        component: sendarticle
+        component: ()=>import('@/view/subpage/sendarticle')
       },{
         path: '/main/articlelist',
         name: 'articlelist',
-        component: articlelist
+        component: ()=>import('@/view/subpage/articlelist')
       },{
         path: '/main/photo',
         name: 'photo',
-        component: photo
+        component: ()=>import('@/view/subpage/photo')
       },{
         path: '/main/liuyan',
         name: 'liuyan',
-        component: liuyan
+        component: ()=>import('@/view/subpage/liuyan')
       },{
         path: '/main/music',
         name: 'music',
-        component: music
+        component: ()=>import('@/view/subpage/music')
       },{
         path: '/main/suibi',
         name: 'suibi',
-        component: suibi
+        component: ()=>import('@/view/subpage/suibi')
       },{
         path: '/main/setting',
         name: 'setting',
-        component: setting
-      },{
-        path: '*',
-        name: '404',
-        component: error
+        component: ()=>import('@/view/subpage/setting')
       }
       ]
+    },{
+      path: '*',
+      name: '404',
+      component: ()=>import('@/view/error')
     }
   ]
 })
 
-router.beforeEach((to,from,next)=>{
-const isLogin=localStorage.getItem('token')?true:false;
-if(to.path=='/'||to.path=='/register'){
-  next()
-}else{
-  isLogin?next():next('/')
-}
-})
+// router.beforeEach((to,from,next)=>{
+// const isLogin=localStorage.getItem('token')?true:false;
+// if(to.path=='/'||to.path=='/register'){
+//   next()
+// }else{
+//   isLogin?next():next('/')
+// }
+// })
 export default router;

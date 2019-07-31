@@ -1,39 +1,20 @@
 <template>
-    <aside>
-          <div id="sidebar" class="nav-collapse " :style="{marginLeft:move+'px'}" tabindex="5000" style="overflow: hidden; outline: none; margin-left: 0px;">
+    <aside id="sidebar">
+          <div  class="nav-collapse " :style="{marginLeft:move+'px'}">
               <!-- sidebar menu start-->
                <el-menu
-      default-active="1" style="margin-top:75px;"
+      default-active="1" 
       router
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      background-color="#424a5d"
-      text-color="#aeb2b7"
       active-text-color="#68dff0">
-       <p class="centered">
-           <a href="profile.html"><img src="../../assets/img/ui-sam.jpg" class="img-circle" width="60"></a>
+       <p class="avator">
+           <img src="@/assets/img/ui-sam.jpg" class="img-circle" width="60">
            </p>   
+           
        <h5 class="centered">{{username}}</h5>
-      <!-- <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-menu"></i>
-          <span>信息总览</span>
-        </template>
-        
-        <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu> -->
+
        <el-menu-item index="1" route="/main">
         <i class="el-icon-menu"></i>
         <span slot="title">信息总览</span>
@@ -77,7 +58,7 @@ export default {
   data(){
 return{
 move:0,
-username:''
+username:'Admin'
 }
   },
  
@@ -114,17 +95,28 @@ this. getusermes()
 };
 </script>
 <style scoped>
+#sidebar{
+  width: 200px;
+  height: 100%;
+  /* background: rgb(66, 74, 93); */
+}
 .iconfont::before{
   font-size: 18px;
 }
-.centered {
-    text-align: center;
-    letter-spacing: 5px;
-        margin: 0 0 10px;
+.avator{
+    margin: 20px 0 0px;
+ text-align: center;
 }
+
 .img-circle {
     border-radius: 50%;
         vertical-align: middle;
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12);
+}
+.centered {
+    text-align: center;
+    letter-spacing: 3px;
+      margin:8px 0;
 }
 </style>
 
