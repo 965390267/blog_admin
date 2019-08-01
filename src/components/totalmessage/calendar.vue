@@ -3,7 +3,6 @@
     <div id="rili_biaoti">
       <span>日历</span>
     </div>
-
     <div id="rili_biankuang" :style="{height:change_height+'px'}">
       <div id="calendar">
         <table class="calendartop" cellspacing="0">
@@ -14,7 +13,6 @@
                 {{thisyear}}
                 <a href="javascript:void(0);">»</a>
               </td>
-
               <td>
                 <a href="javascript:void(0);">«</a>
                 {{thismonth}}
@@ -28,18 +26,12 @@
           <ul class="calendar">
             <li class="week">一</li>
             <li class="week">二</li>
-
             <li class="week">三</li>
-
             <li class="week">四</li>
-
             <li class="week">五</li>
-
             <li class="week">六</li>
-
             <li class="week">日</li>
           </ul>
-
           <ul class="calendar">
             <li class="days" v-for="(days,index) in thismonthdays" :key="index">
               <span v-if="days<first">&nbsp; &nbsp;</span>

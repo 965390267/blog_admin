@@ -24,11 +24,8 @@ html,body,#app{
 }
 
 body {
-    background: #f8f8f8;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-family:'Ruda', 'PT Sans', Helvetica, Arial, sans-serif;
 	color: #797979;
-	background: #f2f2f2;
-    font-family: 'Ruda', sans-serif;
     font-size:13px;
     line-height: 1.42857143;
     background: #f2f2f2 url('../img/blueprint.png');

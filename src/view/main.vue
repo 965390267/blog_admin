@@ -3,12 +3,12 @@
    <head-nav @change="toggle"></head-nav> 
    <div class="middle">
    <left-aside ref='changemove'></left-aside>
-   <div class="subcontainer">
+   <div class="subcontainer" >
  <router-view ></router-view>
    </div>
      
    </div>
-  
+  <ToTop></ToTop>
     <!-- <footer-nav></footer-nav> -->
     </div>  
    
@@ -17,11 +17,11 @@
 <script>
 import HeadNav from "@/components/header.vue";
 import LeftAside from "@/components/aside.vue";
-
+import ToTop from "@/components/toTop.vue";
 import FooterNav from "@/components/footer.vue";
 export default {
   components: {
-    HeadNav,LeftAside,FooterNav
+    HeadNav,LeftAside,FooterNav,ToTop
   },
   name: "login",
   data() {
@@ -45,7 +45,10 @@ this.open=!this.open;
 // this.$refs.changemove.toggle()
 // this.$refs.addwidth.change()
 }
-  }
+  },
+  mounted() {
+
+  },
 };
 </script>
 
@@ -64,5 +67,6 @@ flex-direction: column;
 .subcontainer{
   flex: 1;
   overflow-y: auto;
+  padding: 4px 4px 0 18px;
 }
 </style>

@@ -19,6 +19,10 @@ import 'muse-ui/dist/muse-ui.css';
 
 Vue.use(MuseUI);
 /* muse ui完整引入 */
+import LightTimeline from 'vue-light-timeline';
+
+Vue.use(LightTimeline);
+
 import axios from './fetch'/* axios引入，加入拦截器 */
 Vue.prototype.$http=axios;/* 挂载到vue的原型上 */
 

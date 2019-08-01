@@ -21,13 +21,17 @@ theme.add('light', {
   background: {
     paper: '#fff',
     chip: '#e0e0e0',
-    default: '#fafafa'
+    default: '#fafafa',
+    linearGradient:"linear-gradient(to right, #ec77ab 0%, #7873f5 100%)"
   },
   aside:{
    mainbg:'#fff',
    asidetext:'#546e7a',
    asideactive:'#6572b8',
    activebackground:'none'
+  },
+  commen:{
+   background:'rgba(255,255,255,.5)'
   },
   footer:{
     mainbg:'#2196f3',
@@ -54,13 +58,17 @@ theme.add('dark', {
   background: {
     paper: '#424242',
     chip: '#616161',
-    default: '#FFFFF0'/* 默认body背景色 */
+    default: '#FFFFF0',/* 默认body背景色 */
+    linearGradient:"linear-gradient(to right, #e96443 0%, #904e95 100%)"
   },
   aside:{
    mainbg:'#2D2F3E',
    asidetext:'#aeb2b7',
    asideactive:'rgb(104, 223, 240)',
    activebackground:'none'
+  },
+  commen:{
+   background:'rgba(255,255,255,.5)'
   },
   footer:{
     mainbg:'#424a5d',
@@ -87,14 +95,17 @@ theme.add('LightGreen', {
     background: {
       paper: '#424242',
       chip: '#616161',
-      default: '#FFFAF0'
+      default: '#FFFAF0',
+      linearGradient:"linear-gradient(to right, #c2e59c 0%, #64b3f4 100%)"
     },
     aside:{
      mainbg:'#b2cf87',
      asidetext:'#FFFFE0',
      asideactive:'#2e317c',
      activebackground:'none'
-    },
+    }, commen:{
+      background:'rgba(255,255,255,.5)'
+     },
     footer:{
       mainbg:'#2D2F3E',
       text:'#ccc',
@@ -121,14 +132,17 @@ theme.add('pink', {
   background: {
     paper: '#424242',
     chip: '#616161',
-    default: '#FFFAF0'
+    default: '#FFFAF0',
+    linearGradient:"linear-gradient(to right, #ddd6f3 0%, #faaca8 100%)"
   },
   aside:{
    mainbg:'#F0F3F7',
    asidetext:'#90969D',
    asideactive:'#F3927F',
    activebackground:'#ccc'
-  },
+  }, commen:{
+    background:'rgba(255,255,255,.5)'
+   },
   footer:{
     mainbg:'#BDC2CA',
     text:'#ccc',
@@ -165,6 +179,12 @@ theme.addCreateTheme((theme) => {/* 侧边栏样式底部样式 */
 }
 .el-menu-item.is-active i{
   color:${theme.aside.asideactive}!important;
+}
+.messagewrap::after{
+  background-image:${theme.background.linearGradient}!important;
+}
+.commetns{
+  background:${theme.commen.background}
 }
   `;
 });

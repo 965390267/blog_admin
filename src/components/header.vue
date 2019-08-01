@@ -87,12 +87,12 @@ export default {
     };
   },
   methods: {
-    setFullscreen(){
+    setFullscreen(){/* 切换全屏 */
           this.isFullScreen=!this.isFullScreen;
           this.isFullScreen&&this.launchFullscreen()
           !this.isFullScreen&&this.exitFullscreen();
     },
-    launchFullscreen(){
+    launchFullscreen(){/* 打开全屏 */
       const element=document.documentElement;
  if(element.requestFullscreen) {
       element.requestFullscreen();
@@ -104,7 +104,7 @@ export default {
       element.msRequestFullscreen();
     }
     },
-    exitFullscreen() {
+    exitFullscreen() {/* 退出全屏 */
     if(document.exitFullscreen) {
       document.exitFullscreen();
     } else if(document.mozCancelFullScreen) {
@@ -113,17 +113,10 @@ export default {
       document.webkitExitFullscreen();
     }
   },
-    chooseTheme(color){
+    chooseTheme(color){/* 选择主题色 */
     theme.use(color);
     },
     toggle(e) {
-      //           this.isrotate=!this.isrotate;
-      //           if(!this.isrotate){
-      // e.target.style.cssText='transform:rotateZ(0deg)'
-      //           }else{
-      //               e.target.style.cssText='transform:rotateZ(90deg)'
-      //           }
-
       this.$emit("change");
     },
     logout() {
@@ -165,16 +158,9 @@ export default {
     width: 25px;
     z-index: 10;
     border: 4px solid;
-    border-color: #3d4c5a;
+    border-color: #fc4b6c;
     border-radius: 70px;
     animation: heartbit 1s ease-out;
-    -moz-animation: heartbit 1s ease-out;
-    -moz-animation-iteration-count: infinite;
-    -o-animation: heartbit 1s ease-out;
-    -o-animation-iteration-count: infinite;
-    -webkit-animation: heartbit 1s ease-out;
-    -ms-animation: heartbit 1s ease-out;
-    -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
 }
 .notify .point {
@@ -183,7 +169,7 @@ export default {
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
-    background-color: #3d4c5a;
+    background-color: #fc4b6c;
     position: absolute;
     right: -6px;
     top: -10px;
