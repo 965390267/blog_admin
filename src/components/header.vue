@@ -43,7 +43,7 @@
           <mu-list-item-title>酷炫黑</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
-      <mu-list-item button @click="chooseTheme('LightGreen')">
+      <mu-list-item button @click="chooseTheme('green')">
         <mu-list-item-content>
           <mu-list-item-title>护眼绿</mu-list-item-title>
         </mu-list-item-content>

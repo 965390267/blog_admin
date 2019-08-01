@@ -26,10 +26,11 @@ export default {
     backToTop: function() {
       if (!this.backTopAllow) return;
       this.backTopAllow = false;
-      var step = document.querySelector(".subcontainer").scrollTop / this.backSeconds;
+      const stopDom=document.querySelector(".subcontainer")
+      var step = stopDom.scrollTop / this.backSeconds;
       var backTopInterval = setInterval(()=> {
-        if (document.querySelector(".subcontainer").scrollTop > 0) {
-          document.querySelector(".subcontainer").scrollTop -= step;    
+        if (stopDom.scrollTop > 0) {
+          stopDom.scrollTop -= step;    
         } else { 
           this.backTopAllow = true;
           clearInterval(backTopInterval);

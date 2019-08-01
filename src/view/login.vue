@@ -4,7 +4,8 @@
             <form action="" method="post">
                 <input type="text" name="username" class="username" @keydown.enter="enter" v-model="username" placeholder="Username">
                 <input type="password" name="password" class="password"  @keydown.enter="enter" v-model="password" placeholder="Password">
-                <button class="sign" type="button" @click="enter">Sign me in</button>
+                <button class="signbtn" type="button" @click="enter">Sign me in</button>
+     <!-- <mu-button full-width color="primary">Sign me in</mu-button> -->
                 <div class="error"><span>+</span></div>
             </form>
             <div class="connect">
@@ -204,23 +205,15 @@ input:focus {
         box-shadow: 0 0 20px rgba(0,255,0,.6), inset 0 0 10px rgba(0,255,0,.4), 0 2px 0 #000;
     }
 }
-button.sign {
+.signbtn {
     cursor: pointer;
     width: 300px;
     height: 44px;
     margin-top: 25px;
     padding: 0;
     background: #ef4300;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
     border-radius: 6px;
     border: 1px solid #ff730e;
-    -moz-box-shadow:
-        0 15px 30px 0 rgba(255,255,255,.25) inset,
-        0 2px 7px 0 rgba(0,0,0,.2);
-    -webkit-box-shadow:
-        0 15px 30px 0 rgba(255,255,255,.25) inset,
-        0 2px 7px 0 rgba(0,0,0,.2);
     box-shadow:
         0 15px 30px 0 rgba(255,255,255,.25) inset,
         0 2px 7px 0 rgba(0,0,0,.2);
@@ -229,13 +222,10 @@ button.sign {
     font-weight: 700;
     color: #fff;
     text-shadow: 0 1px 2px rgba(0,0,0,.1);
-    -o-transition: all .2s;
-    -moz-transition: all .2s;
-    -webkit-transition: all .2s;
-    -ms-transition: all .2s;
+    transition: all .2s;
 }
 
-button:hover {
+.signbtn:hover {
     -moz-box-shadow:
         0 15px 30px 0 rgba(255,255,255,.15) inset,
         0 2px 7px 0 rgba(0,0,0,.2);

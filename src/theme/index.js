@@ -4,10 +4,10 @@ config 主题配置对象
 extendName 继承哪个主题， 默认 ‘light’ */
 theme.add('light', {
   primary: '#8c99e0',
-  secondary: '#ff4081',
+  secondary: '#fff',
   success: '#4caf50',
   warning: '#fdd835',
-  info: '#2196f3',
+  info: '#bdbdbd',
   error: '#f44336',
   track: '#bdbdbd',
   text: {
@@ -40,15 +40,15 @@ theme.add('light', {
 }, 'lighttheme');
 
 theme.add('dark', {
-  primary: '#424a5d',
-  secondary: '#ff4081',/* a标签color */
+  primary: '#424a5d',/* 主要主题背景色 */
+  secondary: '#fff',/* 次背景色，可当页面背景色 */
   success: '#4caf50',/* 成功的背景色 */
   warning: '#fdd835',/* 警告背景色 */
-  info: '#2196f3',/* 信息提示背景色 */
+  info: '#ccc',/* 信息提示背景色 */
   error: '#f44336',/* 错误背景色 */
   track: '#757575',
   text: {/* 文本 */
-    primary: '#fff',/* 在body标签中设置全局字体color颜色 */
+    primary: '#424242',/* 在body标签中设置全局字体color颜色 */
     secondary: 'rgba(255, 255, 255, 0.7)',
     alternate: '#fff',
     disabled: 'rgba(255, 255, 255, 0.3)',
@@ -76,12 +76,12 @@ theme.add('dark', {
   }
 }, 'dark');
 /* 浅绿色主题 @desc{备用绿色} #D5E28A*/
-theme.add('LightGreen', {
+theme.add('green', {
     primary: '#322f3b',
-    secondary: '#ff4081',
+    secondary: '#fff',
     success: '#4caf50',
     warning: '#fdd835',
-    info: '#2196f3',
+    info: '#ccc',
     error: '#f44336',
     track: '#757575',
     text: {
@@ -115,10 +115,10 @@ theme.add('LightGreen', {
 /* 浅粉色主题 */
 theme.add('pink', {
   primary: '#F38D7A',
-  secondary: '#ff4081',
+  secondary: '#fff',
   success: '#4caf50',
   warning: '#fdd835',
-  info: '#2196f3',
+  info: '#ccc',
   error: '#f44336',
   track: '#757575',
   text: {
@@ -185,6 +185,9 @@ theme.addCreateTheme((theme) => {/* 侧边栏样式底部样式 */
 }
 .commetns{
   background:${theme.commen.background}
+}
+.mu-picker{
+  color:${theme.primary}
 }
   `;
 });
