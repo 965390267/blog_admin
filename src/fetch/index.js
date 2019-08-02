@@ -4,6 +4,7 @@ import router from '../router/index'
 import { Loading, Message } from 'element-ui';
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$message = Message;
+window.toast=Message;
 Vue.use(Loading.directive);
 // 超时时间
 axios.defaults.timeout = 5000;

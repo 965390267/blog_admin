@@ -18,6 +18,7 @@ import MuseUI from 'muse-ui';
 import 'muse-ui/dist/muse-ui.css';
 
 Vue.use(MuseUI);
+
 /* muse ui完整引入 */
 import LightTimeline from 'vue-light-timeline';
 
@@ -25,7 +26,14 @@ Vue.use(LightTimeline);
 
 import axios from './fetch'/* axios引入，加入拦截器 */
 Vue.prototype.$http=axios;/* 挂载到vue的原型上 */
-
+/* muse UI弹框插件 修改window自带弹框*/
+import 'muse-ui-message/dist/muse-ui-message.css';
+import Message from 'muse-ui-message';
+Vue.use(Message);
+window.alert=Message.alert;
+window.confirm=Message.confirm;
+window.prompt=Message.prompt;
+/* muse UI弹框插件 */
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

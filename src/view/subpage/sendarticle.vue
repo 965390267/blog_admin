@@ -20,6 +20,7 @@
               label="日期"
               container="dialog"
               label-float
+              type="dateTime"
             ></mu-date-input>
           </div>
         </div>
@@ -36,25 +37,37 @@
         </div>
         <div class="article-base-right">
           <div>
-            <input class="upload" type="file" ref="file" multiple @change="ViewImg($event)" />
-            <mu-paper
-              :style="{backgroundImage:'url('+thumbnail+')'}"
-              class="small-bg"
+            <input class="upload" type="file" ref="file" multiple @change="ViewImg($event.target.files[0])" />
+            <mu-paper            
+              class="small-bg-wrap"
               :z-depth="5"
               @click="openfile()"
+              @drop='drop($event)'
+              @dragover="dragover($event)"
             >
-              <i v-if="isUpLOAD" class="iconfont icon-tupian iconset"></i>
+            <div class="small-bg"  :style="{backgroundImage:'url('+thumbnail+')'}">
+              <i v-if="isUpLOAD" class="iconfont icon-iconfontadd iconset"></i>
+              <!-- 图片容器 -->
+            </div>
+              
+              <div class="progress-bar">
+            <mu-linear-progress :value="50" mode="determinate"></mu-linear-progress>
+            </div>
             </mu-paper>
+            
           </div>
-          <mu-button round @click="uploadimg()" color="success">上传缩略图</mu-button>
+          <mu-button class="upload-sm-img" round @click="uploadimg()" color="success">上传缩略图</mu-button>
         </div>
       </div>
-
       <div class="adminstration-right toolbar mu-secondary-color">
         <!-- 富文本编辑器 -->
         <Edit v-if='!switchEdit'></Edit>
         <MarkEdit v-if='switchEdit'></MarkEdit>
       </div>
+      <div class="send-article">
+      <mu-button  round  color="success">文章发布</mu-button>
+      </div>
+ 
     </div>
   </div>
 </template>
@@ -82,19 +95,21 @@ export default {
     };
   },
   methods: {
+    dragover(e){
+      e.preventDefault();
+    },
+    drop(e){
+       this.ViewImg(e.dataTransfer.files[0])
+    },
     chooseEdit(){
-       if(this.switchEdit){
-
-       }else{
-
-       }
+     toast.success({message:this.switchEdit?'已切换到markdown':'已切换到富文本'})
     },
     openfile() {
       this.$refs.file.click();
     },
-    ViewImg(e) {
+    ViewImg(filsobj) {
       const fileread = new FileReader();
-      fileread.readAsDataURL(e.target.files[0]);
+      fileread.readAsDataURL(filsobj);
       fileread.onload = e => {
         this.isUpLOAD = false;
         this.thumbnail = e.target.result;
@@ -165,24 +180,42 @@ hr {
   display: none;
 }
 .setfontsize{
+  padding-top: 20px;
   font-size: 12px;
 }
-.small-bg {
+.small-bg-wrap {
+ position: relative;
+  width: 180px;
+  height: 130px;
+}
+.small-bg{
   display: inline-block;
-  margin-bottom: 20px;
-  width: 120px;
-  height: 120px;
-  text-align: center;
-  background-size: cover;
+   text-align: center;
+  background-size: 100% 100%;
+  width: 180px;
+ height: 126px;
+ line-height: 120px;
+}
+.progress-bar{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+   width: 180px;
+  
+}
+.upload-sm-img{
+    margin-top: 20px;
+  margin-left:8%;
 }
 .iconset {
   font-size: 24px;
   line-height: 120px;
 }
-input:focus {
-  border: 1px solid rgb(214, 107, 107);
-  box-shadow: 0px 0px 8px rgb(214, 107, 107) inset 0px 0px 8px
-    rgb(214, 107, 107);
+.send-article{
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-right: 80px;
 }
 </style>
 

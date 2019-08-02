@@ -51,7 +51,7 @@ export default {
   position: fixed;
   right: 16px;
   bottom: 16px;
-  z-index: 101;
+  z-index: 9111;
 }
 .scale-enter-active,
 .scale-leave-active {

@@ -67,6 +67,6 @@ flex-direction: column;
 .subcontainer{
   flex: 1;
   overflow-y: auto;
-  padding: 4px 4px 0 18px;
+  padding: 4px 18px 0 18px;
 }
 </style>

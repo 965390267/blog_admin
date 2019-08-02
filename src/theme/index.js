@@ -115,14 +115,14 @@ theme.add('green', {
 /* 浅粉色主题 */
 theme.add('pink', {
   primary: '#F38D7A',
-  secondary: '#fff',
+  secondary: '#FFFAF0',
   success: '#4caf50',
   warning: '#fdd835',
   info: '#ccc',
   error: '#f44336',
   track: '#757575',
   text: {
-    primary: '#fff',
+    primary: '#757575',
     secondary: 'rgba(255, 255, 255, 0.7)',
     alternate: '#303030',
     disabled: 'rgba(255, 255, 255, 0.3)',
@@ -188,6 +188,21 @@ theme.addCreateTheme((theme) => {/* 侧边栏样式底部样式 */
 }
 .mu-picker{
   color:${theme.primary}
+}
+.mu-tabs{
+  background:${theme.primary}
+}
+.mu-timepicker-number__selected{
+  background:${theme.primary}
+}
+.mu-switch-checked{
+  color:${theme.primary}
+}
+.mu-linear-progress-indeterminate{
+  background:${theme.primary}
+}
+.mu-linear-progress-determinate{
+  background:${theme.primary}
 }
   `;
 });

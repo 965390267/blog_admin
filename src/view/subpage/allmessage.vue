@@ -13,14 +13,12 @@
         <Aside></Aside>
       </div>
     </div>
-    <!-- <Task></Task> -->
   </div>
 </template>
 <script>
 import Card from "@/components/totalmessage/card";
 import Comments from "@/components/totalmessage/comments";
 import Aside from "@/components/totalmessage/aside";
-// import Task from "@/components/allTasks";
 export default {
   components: {
     Card,Comments,Aside
