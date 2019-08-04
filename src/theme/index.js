@@ -2,81 +2,80 @@ import theme from 'muse-ui/lib/theme';/* 主题设置 */
 /* @parm add(name, config, extendName) 添加新的主题,name 主题名称
 config 主题配置对象
 extendName 继承哪个主题， 默认 ‘light’ */
-theme.add('light', {
-  primary: '#8c99e0',
-  secondary: '#fff',
-  success: '#4caf50',
-  warning: '#fdd835',
-  info: '#bdbdbd',
-  error: '#f44336',
-  track: '#bdbdbd',
-  text: {
-    primary: 'rgba(0, 0, 0, 0.87)',
-    secondary: 'rgba(0, 0, 0, 0.54)',
-    alternate: '#2c2c2c',
-    disabled: 'rgba(0, 0, 0, 0.38)',
-    hint: 'rgba(0, 0, 0, 0.38)' // 提示文字颜色
+const themeConfig={
+  "light":{
+    primary: '#8c99e0',
+    secondary: '#fff',
+    success: '#4caf50',
+    warning: '#fdd835',
+    info: '#bdbdbd',
+    error: '#f44336',
+    track: '#bdbdbd',
+    text: {
+      primary: 'rgba(0, 0, 0, 0.87)',
+      secondary: 'rgba(0, 0, 0, 0.54)',
+      alternate: '#2c2c2c',
+      disabled: 'rgba(0, 0, 0, 0.38)',
+      hint: 'rgba(0, 0, 0, 0.38)' // 提示文字颜色
+    },
+    divider: 'rgba(0, 0, 0, 0.12)',
+    background: {
+      paper: '#fff',
+      chip: '#e0e0e0',
+      default: '#fafafa',
+      linearGradient:"linear-gradient(to right, #ec77ab 0%, #7873f5 100%)"
+    },
+    aside:{
+     mainbg:'#fff',
+     asidetext:'#546e7a',
+     asideactive:'#6572b8',
+     activebackground:'none'
+    },
+    commen:{
+     background:'rgba(255,255,255,.5)'
+    },
+    footer:{
+      mainbg:'#2196f3',
+      text:'#ccc',
+    }
   },
-  divider: 'rgba(0, 0, 0, 0.12)',
-  background: {
-    paper: '#fff',
-    chip: '#e0e0e0',
-    default: '#fafafa',
-    linearGradient:"linear-gradient(to right, #ec77ab 0%, #7873f5 100%)"
+  "dark": {
+    primary: '#424a5d',/* 主要主题背景色 */
+    secondary: '#fff',/* 次背景色，可当页面背景色 */
+    success: '#4caf50',/* 成功的背景色 */
+    warning: '#fdd835',/* 警告背景色 */
+    info: '#ccc',/* 信息提示背景色 */
+    error: '#f44336',/* 错误背景色 */
+    track: '#757575',
+    text: {/* 文本 */
+      primary: '#424242',/* 在body标签中设置全局字体color颜色 */
+      secondary: 'rgba(255, 255, 255, 0.7)',
+      alternate: '#fff',
+      disabled: 'rgba(255, 255, 255, 0.3)',
+      hint: 'rgba(255, 255, 255, 0.3)' // 提示文字颜色
+    },
+    divider: 'rgba(255, 255, 255, 0.3)',
+    background: {
+      paper: '#424242',
+      chip: '#616161',
+      default: '#FFFFF0',/* 默认body背景色 */
+      linearGradient:"linear-gradient(to right, #e96443 0%, #904e95 100%)"
+    },
+    aside:{
+     mainbg:'#2D2F3E',
+     asidetext:'#aeb2b7',
+     asideactive:'rgb(104, 223, 240)',
+     activebackground:'none'
+    },
+    commen:{
+     background:'rgba(255,255,255,.5)'
+    },
+    footer:{
+      mainbg:'#424a5d',
+      text:'#ccc',
+    }
   },
-  aside:{
-   mainbg:'#fff',
-   asidetext:'#546e7a',
-   asideactive:'#6572b8',
-   activebackground:'none'
-  },
-  commen:{
-   background:'rgba(255,255,255,.5)'
-  },
-  footer:{
-    mainbg:'#2196f3',
-    text:'#ccc',
-  }
-}, 'lighttheme');
-
-theme.add('dark', {
-  primary: '#424a5d',/* 主要主题背景色 */
-  secondary: '#fff',/* 次背景色，可当页面背景色 */
-  success: '#4caf50',/* 成功的背景色 */
-  warning: '#fdd835',/* 警告背景色 */
-  info: '#ccc',/* 信息提示背景色 */
-  error: '#f44336',/* 错误背景色 */
-  track: '#757575',
-  text: {/* 文本 */
-    primary: '#424242',/* 在body标签中设置全局字体color颜色 */
-    secondary: 'rgba(255, 255, 255, 0.7)',
-    alternate: '#fff',
-    disabled: 'rgba(255, 255, 255, 0.3)',
-    hint: 'rgba(255, 255, 255, 0.3)' // 提示文字颜色
-  },
-  divider: 'rgba(255, 255, 255, 0.3)',
-  background: {
-    paper: '#424242',
-    chip: '#616161',
-    default: '#FFFFF0',/* 默认body背景色 */
-    linearGradient:"linear-gradient(to right, #e96443 0%, #904e95 100%)"
-  },
-  aside:{
-   mainbg:'#2D2F3E',
-   asidetext:'#aeb2b7',
-   asideactive:'rgb(104, 223, 240)',
-   activebackground:'none'
-  },
-  commen:{
-   background:'rgba(255,255,255,.5)'
-  },
-  footer:{
-    mainbg:'#424a5d',
-    text:'#ccc',
-  }
-}, 'dark');
-/* 浅绿色主题 @desc{备用绿色} #D5E28A*/
-theme.add('green', {
+  "green":{
     primary: '#322f3b',
     secondary: '#fff',
     success: '#4caf50',
@@ -85,7 +84,7 @@ theme.add('green', {
     error: '#f44336',
     track: '#757575',
     text: {
-      primary: '#fff',
+      primary: '#616161',
       secondary: 'rgba(255, 255, 255, 0.7)',
       alternate: '#303030',
       disabled: 'rgba(255, 255, 255, 0.3)',
@@ -110,44 +109,53 @@ theme.add('green', {
       mainbg:'#2D2F3E',
       text:'#ccc',
     }
-  }, 'LightGreen');
+  },
+  "pink":
+  {
+    primary: '#F38D7A',
+    secondary: '#FFFAF0',
+    success: '#4caf50',
+    warning: '#fdd835',
+    info: '#ccc',
+    error: '#f44336',
+    track: '#757575',
+    text: {
+      primary: '#757575',
+      secondary: 'rgba(255, 255, 255, 0.7)',
+      alternate: '#303030',
+      disabled: 'rgba(255, 255, 255, 0.3)',
+      hint: 'rgba(255, 255, 255, 0.3)' // 提示文字颜色
+    },
+    divider: 'rgba(255, 255, 255, 0.3)',
+    background: {
+      paper: '#424242',
+      chip: '#616161',
+      default: '#FFFAF0',
+      linearGradient:"linear-gradient(to right, #ddd6f3 0%, #faaca8 100%)"
+    },
+    aside:{
+     mainbg:'#F0F3F7',
+     asidetext:'#90969D',
+     asideactive:'#F3927F',
+     activebackground:'#ccc'
+    }, commen:{
+      background:'rgba(255,255,255,.5)'
+     },
+    footer:{
+      mainbg:'#BDC2CA',
+      text:'#ccc',
+    }
+  }
+}
+
+theme.add('light', themeConfig.light, 'lighttheme');
+
+theme.add('dark',themeConfig.dark, 'dark');
+/* 浅绿色主题 @desc{备用绿色} #D5E28A*/
+theme.add('green', themeConfig.green, 'LightGreen');
 /* 浅绿色主题 */
 /* 浅粉色主题 */
-theme.add('pink', {
-  primary: '#F38D7A',
-  secondary: '#FFFAF0',
-  success: '#4caf50',
-  warning: '#fdd835',
-  info: '#ccc',
-  error: '#f44336',
-  track: '#757575',
-  text: {
-    primary: '#757575',
-    secondary: 'rgba(255, 255, 255, 0.7)',
-    alternate: '#303030',
-    disabled: 'rgba(255, 255, 255, 0.3)',
-    hint: 'rgba(255, 255, 255, 0.3)' // 提示文字颜色
-  },
-  divider: 'rgba(255, 255, 255, 0.3)',
-  background: {
-    paper: '#424242',
-    chip: '#616161',
-    default: '#FFFAF0',
-    linearGradient:"linear-gradient(to right, #ddd6f3 0%, #faaca8 100%)"
-  },
-  aside:{
-   mainbg:'#F0F3F7',
-   asidetext:'#90969D',
-   asideactive:'#F3927F',
-   activebackground:'#ccc'
-  }, commen:{
-    background:'rgba(255,255,255,.5)'
-   },
-  footer:{
-    mainbg:'#BDC2CA',
-    text:'#ccc',
-  }
-}, 'pinktheme');
+theme.add('pink', themeConfig.pink, 'pinktheme');
 /* 浅粉色主题 */
 
 
@@ -203,6 +211,15 @@ theme.addCreateTheme((theme) => {/* 侧边栏样式底部样式 */
 }
 .mu-linear-progress-determinate{
   background:${theme.primary}
+}
+.mu-pagination-item.mu-button.is-current{
+  background:${theme.primary}
+}
+.mu-checkbox-checked{
+  color:${theme.primary}
+}
+.rili_biaoti{
+  background:${theme.primary}!important;
 }
   `;
 });

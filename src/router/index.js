@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import login from '@/view/login'
+import main from '@/view/main'
+import allmessage from '@/view/subpage/allmessage'
 Vue.use(Router)
 
 const router= new Router({
@@ -7,16 +10,16 @@ const router= new Router({
     {
       path: '/',
       name: 'login',
-      component: ()=>import('@/view/login')
+      component:login
     },
     {
       path:'/main',
       name:'main',
-      component: ()=>import('@/view/main'),
+      component: main,
       children:[{
         path: '/main',
         name: 'allmessage',
-        component: ()=>import('@/view/subpage/allmessage')
+        component: allmessage
       },{
         path: '/main/sendarticle',
         name: 'sendarticle',
@@ -38,9 +41,9 @@ const router= new Router({
         name: 'music',
         component: ()=>import('@/view/subpage/music')
       },{
-        path: '/main/suibi',
-        name: 'suibi',
-        component: ()=>import('@/view/subpage/suibi')
+        path: '/main/weiyu',
+        name: 'weiyu',
+        component: ()=>import('@/view/subpage/weiyu')
       },{
         path: '/main/setting',
         name: 'setting',

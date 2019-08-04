@@ -1,50 +1,45 @@
 <template>
   <div class="sendarticle">
     <h4>文章列表</h4>
-    <el-table highlight-current-row ref="multipleTable" :data="tableData" style="width: 100%">
-      <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column label="日期" width="180">
-        <template slot-scope="scope">
-          <i class="el-icon-time"></i>
-          <span style="margin-left: 10px">{{ scope.row.time }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="标题" width="180">
-        <template slot-scope="scope">
-          <div class="list_sl">{{ scope.row.title }}</div>
-        </template>
-      </el-table-column>
-      <el-table-column label="栏目" width="180">
-        <template slot-scope="scope">
-          <div class="list_sl">{{ scope.row.column }}</div>
-        </template>
-      </el-table-column>
-      <el-table-column label="标签" width="180">
-        <template slot-scope="scope">
-          <div class="list_sl">{{scope.row.tag }}</div>
-        </template>
-      </el-table-column>
-      <el-table-column label="作者" width="180">
-        <template slot-scope="scope">
-          <div class="list_sl">{{scope.row.author }}</div>
-        </template>
-      </el-table-column>
-      <el-table-column label="操作">
-        <template slot-scope="scope">
-          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-          <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <mu-data-table
+      selectable
+      select-all
+      no-data-text="暂无数据"
+      hover
+      auto-expand
+      @row-click="preventStop"
+      :selects.sync="selects"
+      checkbox
+      :columns="columns"
+      :sort.sync="sort"
+      @sort-change="handleSortChange"
+      :data="list.slice(0, 6)"
+    >
+      <template slot="expand" slot-scope="prop">
+        <div class="article-content" v-html="prop.row.article"></div>
+      </template>
+      <template slot-scope="scope">
+        <td>{{scope.row.time}}</td>
+        <td class="is-right">{{scope.row.visitnumber}}</td>
+        <td class="is-right">{{scope.row.title}}</td>
+        <td class="is-right">{{scope.row.column}}</td>
+        <td class="is-right">{{scope.row.tag}}</td>
+        <td class="is-right">{{scope.row.author}}</td>
+        <td class="is-right">
+          <mu-button small color="success" @click="edit($event)">编辑</mu-button>
+          <mu-button small class="set-margin-left" color="error">删除</mu-button>
+        </td>
+      </template>
+    </mu-data-table>
     <div class="divpage">
-      <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page.sync="currentPage"
-        :page-size="100"
-        layout="prev, pager, next, jumper"
-        :total="1000"
-      ></el-pagination>
+      <mu-pagination
+        raised
+        circle
+        :total="count"
+        :page-size="pageSize"
+        @change="currentPageChange()"
+        :current.sync="currentPage"
+      ></mu-pagination>
     </div>
   </div>
 </template>
@@ -55,13 +50,51 @@ export default {
     return {
       tableData: [],
       multipleSelection: [],
-      currentPage: 5
+      currentPage: 1,
+      count: 0,
+      pageSize: 5 /* 每页默认显示5条 */,
+      selects: [],
+      sort: {
+        name: "time",
+        order: "asc"
+      },
+      columns: [
+        { title: "日期", name: "time", align: "center", sortable: true },
+        {
+          title: "被观看",
+          name: "visitnumber",
+          align: "center",
+          sortable: true
+        },
+        { title: "标题", name: "title", align: "center" },
+        { title: "栏目", name: "column", align: "center" },
+        { title: "标签", name: "tag", align: "center" },
+        { title: "作者", name: "author", align: "center" },
+        { title: "操作", name: "操作", align: "center", width: 260 }
+      ],
+      list: []
     };
   },
   methods: {
+    edit(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
+    preventStop(index, row, event) {
+      console.log(row);
+    },
+    handleSortChange({ name, order }) {
+      this.list = this.list.sort((a, b) =>
+        order === "asc" ? a[name] - b[name] : b[name] - a[name]
+      );
+    },
+    currentPageChange() {
+      this.currentPage = Math.floor(this.count / this.pageSize);
+    },
     getArtMes() {
-      this.$http.get("api/getarticle").then(res => {
-        this.tableData = res.data.data;
+      this.$http.post("api/getarticle").then(res => {
+        this.list = res.data.data;
+        this.count = res.data.count;
       });
     },
     handleSizeChange(val) {
@@ -132,7 +165,20 @@ export default {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+.article-content {
+  padding: 24px;
+}
+
 .divpage {
+  margin: 0 auto;
   margin-top: 25px;
+  width: 460px;
+}
+.is-right {
+  padding: 24px;
+  text-align: center !important;
+}
+.set-margin-left {
+  margin-left: 12px;
 }
 </style>

@@ -17,6 +17,7 @@
 </template>
 <script>
 import Card from "@/components/totalmessage/card";
+
 import Comments from "@/components/totalmessage/comments";
 import Aside from "@/components/totalmessage/aside";
 export default {

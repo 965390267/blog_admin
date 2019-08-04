@@ -7,9 +7,18 @@
       </div>
       <h3 class="name">Angela Dominic</h3>
       <p class="work">Web Designer & Developer</p>
+
     </div>
   </div>
 </template>
+<script>
+
+export default {
+  components:{
+
+  }
+}
+</script>
 <style scoped>
 .personcard {
   background: #fff;

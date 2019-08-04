@@ -1,10 +1,10 @@
 <template>
-  <div id="rili">
-    <div id="rili_biaoti">
+  <div class="rili">
+    <div class="rili_biaoti">
       <span>日历</span>
     </div>
-    <div id="rili_biankuang" :style="{height:change_height+'px'}">
-      <div id="calendar">
+    <div class="rili_biankuang" :style="{height:change_height+'px'}">
+      <div class="calendar">
         <table class="calendartop" cellspacing="0">
           <tbody>
             <tr>
@@ -96,14 +96,17 @@ export default {
 };
 </script>
 <style scoped>
-#rili_biaoti {
+.rili{
+  background: #fff;
+}
+.rili_biaoti {
   margin: 20px auto 15px;
   padding: 0;
   width: 100%;
   height: 45px;
   background: rgba(50, 162, 172, 0.72);
 }
-#rili_biaoti span {
+.rili_biaoti span {
   height: 45px;
   color: #fff;
   text-shadow: 1px 1px 3px #000;

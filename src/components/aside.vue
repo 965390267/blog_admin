@@ -27,9 +27,9 @@
         <i class="el-icon-document"></i>
         <span slot="title">文章列表</span>
       </el-menu-item>
-       <el-menu-item index="/main/suibi">
+       <el-menu-item index="/main/weiyu">
         <i class="iconfont icon-bi"></i>
-        <span slot="title">&nbsp;&nbsp;随&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;笔</span>
+        <span slot="title">&nbsp;&nbsp;微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语</span>
       </el-menu-item>
       <el-menu-item index="/main/photo" >
         <i class="el-icon-picture"></i>
