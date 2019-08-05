@@ -151,16 +151,20 @@ export default {
   position: absolute;
   right: 100px;
   top: 100px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
   color: #999;
   font-size: 50px;
   background: rgba(0, 0, 0, 0.8);
 }
-.choose-btn{
+/* .choose-btn{
  position: absolute;
     right: 10px;
     bottom: -5px;
     z-index: 900;
-}
+} */
 /*--gallery--*/
 .gallery-grids {
   width: 95%;

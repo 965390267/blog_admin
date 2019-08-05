@@ -8,13 +8,14 @@
       <div class="article-base">
         <div class="article-base-left">
           <div>
-            <mu-text-field class="clearMarginbottom" v-model="title" label="请在此处输入文章标题" label-float></mu-text-field>
+            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="title" label="请在此处输入文章标题" label-float></mu-text-field>
           </div>
           <div>
-            <mu-text-field class="clearMarginbottom" v-model="author" label="作者" label-float></mu-text-field>
+            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="author" label="作者" label-float></mu-text-field>
           </div>
           <div>
             <mu-date-input
+             color='#ff8a65'
               class="clearMarginbottom"
               v-model="time"
               label="日期"
@@ -26,10 +27,10 @@
         </div>
         <div class="article-base-mid">
           <div>
-            <mu-text-field class="clearMarginbottom" v-model="title" label="标签 多个标签用,号隔开" label-float></mu-text-field>
+            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="title" label="标签 多个标签用,号隔开" label-float></mu-text-field>
           </div>
           <div>
-            <mu-text-field class="clearMarginbottom" v-model="title" label="归类" label-float></mu-text-field>
+            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="title" label="归类" label-float></mu-text-field>
           </div>
           <div class="mu-info-text-color setfontsize">
            <i class="mu-error-text-color">#</i>默认富文本，可选MD<mu-switch v-model="switchEdit" @change='chooseEdit()'></mu-switch>
@@ -59,7 +60,7 @@
           <mu-button class="upload-sm-img" round @click="uploadimg()" color="success">上传缩略图</mu-button>
         </div>
       </div>
-      <div class="adminstration-right toolbar mu-secondary-color">
+      <div class="adminstration-right toolbar self-background-color">
         <!-- 富文本编辑器 -->
         <Edit v-if='!switchEdit'></Edit>
         <MarkEdit v-if='switchEdit'></MarkEdit>

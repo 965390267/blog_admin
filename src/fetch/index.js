@@ -20,11 +20,11 @@ var loadinginstace;
     })
  }
 const loadingHidden=()=>{
-    loadinginstace.close()
+    loadinginstace&&loadinginstace.close()
 }
 axios.interceptors.request.use(config => {
         // element ui Loading方法
-        loadingShow()
+        // loadingShow()
         if(localStorage.getItem('token')){
             config.headers.Authorization=localStorage.getItem('token')
         }

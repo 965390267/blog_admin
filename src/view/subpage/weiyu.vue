@@ -48,11 +48,18 @@ Index.prototype.update = function (item) {
 Index.prototype.bindEvents = function (item, index) {
     item.addEventListener('mouseenter', (e)=> { 
          this.addClass(e, item, 'in', index);
+                 item.removeEventListener('mouseenter', (e)=> { 
+         this.addClass(e, item, 'in', index);
+        return false;
+    })
         return false;
     })
   item.addEventListener('mouseleave', (e)=> {
-        console.log(e);
          this.addClass(e, item, 'out', index);
+   item.removeEventListener('mouseleave', (e)=> {
+         this.addClass(e, item, 'out', index);
+        return false;
+    })
         return false;
     })
 };
