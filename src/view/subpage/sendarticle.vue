@@ -75,6 +75,7 @@
 <script>
 import Edit from "@/components/edit.vue";
 import MarkEdit from "@/components/markdownedit.vue";
+import * as qiniu from 'qiniu-js';
 export default {
   components: {
     Edit,
@@ -122,7 +123,7 @@ export default {
     uploadimg() {
     const file = this.fileObj;
       const key = file.name;
-      const token = 'mRJ2s77P9ZvQVefN-UstJeQTaO4APnL1YO8qRQ-M:WpW1nbbExWmO9kdWWqkhfCdLDsw=:eyJzY29wZSI6ImZpcnN0X3p6aCIsImRlYWRsaW5lIjoxNTY1MzQ2NDI5fQ=='; //从服务器拿的并存在本地data里
+      const token = 'mRJ2s77P9ZvQVefN-UstJeQTaO4APnL1YO8qRQ-M:qtAP-1il2oJmJI6OFFrlRHu0z6c=:eyJzY29wZSI6ImZpcnN0X3p6aCIsImRlYWRsaW5lIjoxNTY1MzQ4MzY4fQ=='; //从服务器拿的并存在本地data里
       const putExtra = {
         fname: '',
         params: {},
@@ -142,7 +143,7 @@ export default {
           this.$notify('上传图片失败');
         },
         complete: (res) => {
-          console.log(res.key);
+          console.log(res);
         },
       });
     },

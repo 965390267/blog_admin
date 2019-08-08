@@ -37,7 +37,7 @@
          
           <a  class="b-link-stripe b-animate-go swipebox">
               <div class="choose-btn">
-                <mu-checkbox v-model="checkbox" value="eat" label="单选"></mu-checkbox>
+                <mu-checkbox v-model="checkbox" value="eat" label="删除"></mu-checkbox>
                 </div>
             <div class="gal-spin-effect vertical" @click="openPhoto(item.src)">
               
@@ -53,7 +53,7 @@
         <div class="col-md-3 baner-top ban-mar" v-else :key="index">
           <a class="b-link-stripe b-animate-go swipebox">
             <div class="choose-btn">
-                <mu-checkbox v-model="checkbox" value="eat" label="单选"></mu-checkbox>
+                <mu-checkbox v-model="checkbox" value="eat" label="删除"></mu-checkbox>
                 </div>
             <div class="gal-spin-effect vertical" @click="openPhoto(item.src)">
               <img :src="item.src" height="240" alt=" " />
@@ -159,12 +159,12 @@ export default {
   font-size: 50px;
   background: rgba(0, 0, 0, 0.8);
 }
-/* .choose-btn{
+.choose-btn{
  position: absolute;
     right: 10px;
     bottom: -5px;
     z-index: 900;
-} */
+}
 /*--gallery--*/
 .gallery-grids {
   width: 95%;
