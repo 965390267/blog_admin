@@ -92,7 +92,8 @@ export default {
       head_img: "",
       imgsrc: "",
       tag: "",
-      imgFile: {}
+      imgFile: {},
+      fileObj:{}
     };
   },
   methods: {
@@ -109,6 +110,7 @@ export default {
       this.$refs.file.click();
     },
     ViewImg(filsobj) {
+      this.fileObj=filsobj;
       const fileread = new FileReader();
       fileread.readAsDataURL(filsobj);
       fileread.onload = e => {
@@ -118,32 +120,31 @@ export default {
       fileread.onerror=()=>{this.isUpLOAD = true;}
     },
     uploadimg() {
-      var formdata = new FormData();
-      formdata.append("uploadarticleimg", this.imgFile);
-      let config = { headers: { "Content-Type": "multipart/form-data" } };
-      this.$http
-        .post("api/Authentication/articleimg", formdata, config)
-        .then(res => {
-          this.thumbnail = res.data.data.newPath;
-          console.log(res.data);
-          this.$http
-            .post("api/Authentication/createarticle", {
-              column: this.column,
-              thumbnail: this.thumbnail,
-              tag: this.tag,
-              picsrc: this.imgsrc,
-              title: this.title,
-              author: this.author,
-              time: new Date().getTime(),
-              article: this.edit.txt.html()
-            })
-            .then(res => {
-              console.log(res);
-              if (res.status == 200) {
-                alert("文章添加成功");
-              }
-            });
-        });
+    const file = this.fileObj;
+      const key = file.name;
+      const token = 'mRJ2s77P9ZvQVefN-UstJeQTaO4APnL1YO8qRQ-M:WpW1nbbExWmO9kdWWqkhfCdLDsw=:eyJzY29wZSI6ImZpcnN0X3p6aCIsImRlYWRsaW5lIjoxNTY1MzQ2NDI5fQ=='; //从服务器拿的并存在本地data里
+      const putExtra = {
+        fname: '',
+        params: {},
+        mimeType: ['image/png', 'image/jpeg', 'image/gif'],
+      };
+      const config = {
+        useCdnDomain: true, //使用cdn加速
+      };
+      const observable = qiniu.upload(file, key, token, putExtra, config);
+
+      observable.subscribe({
+        next: (result) => {
+          // 主要用来展示进度
+          console.warn(result);
+        },
+        error: () => {
+          this.$notify('上传图片失败');
+        },
+        complete: (res) => {
+          console.log(res.key);
+        },
+      });
     },
 
   },
