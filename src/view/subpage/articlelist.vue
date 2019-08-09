@@ -26,8 +26,8 @@
         <td class="is-right">{{scope.row.tag}}</td>
         <td class="is-right">{{scope.row.author}}</td>
         <td class="is-right">
-          <mu-button small color="success" @click="edit($event)">编辑</mu-button>
-          <mu-button small class="set-margin-left" color="error">删除</mu-button>
+          <mu-button small color='success'  @click="edit($event)"><div class="iconfont icon-bianji iconfontcolor"></div></mu-button>
+          <mu-button small class="set-margin-left"  @click="delate($event)" color="error"><div class="iconfont icon-dustbin_icon iconfontcolor"></div></mu-button>
         </td>
       </template>
     </mu-data-table>
@@ -76,6 +76,10 @@ export default {
     };
   },
   methods: {
+    delate(e){
+ e.preventDefault();
+      e.stopPropagation();
+    },
     edit(e) {
       e.preventDefault();
       e.stopPropagation();

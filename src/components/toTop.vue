@@ -1,6 +1,6 @@
 <template>
   <transition name="scale">
-    <mu-button class="gotop" v-show="isShow" fab color="red" @click="backToTop()">top</mu-button>
+    <mu-button class="gotop" v-show="isShow" fab color="red" @click="backToTop()"><div class="iconfont icon-up-arrow"></div></mu-button>
   </transition>
 </template>
 <script>

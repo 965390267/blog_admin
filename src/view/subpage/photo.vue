@@ -4,7 +4,7 @@
       <i class="fa fa-angle-right"></i> Gallery
     </h3>
     <hr />
-    <mu-menu placement='bottom' :open='isOpen'>
+    <mu-menu placement="bottom" :open="isOpen">
       <mu-button color="primary">{{currentType}}</mu-button>
       <mu-list slot="content">
         <mu-list-item button @click="chooseType('风景')">
@@ -26,21 +26,19 @@
     </mu-menu>
     <transition name="scale">
       <!-- :style="{backgroundImage:'url('+piclist_item+')'}" -->
-      <div class="swipebox-slider"  v-show="showPic" >
-        <img :src="piclist_item" alt="" srcset="">
+      <div class="swipebox-slider" v-show="showPic">
+        <img :src="piclist_item" alt srcset />
         <div class="close iconfont icon-gouwuche" @click="showPic=false"></div>
       </div>
     </transition>
     <div class="gallery-grids">
       <template v-for="(item,index) in resultImgList">
         <div class="col-md-6 baner-top" v-if="item.bigOrSmall" :key="index">
-         
-          <a  class="b-link-stripe b-animate-go swipebox">
-              <div class="choose-btn">
-                <mu-checkbox v-model="checkbox" value="eat" label="删除"></mu-checkbox>
-                </div>
+          <a class="b-link-stripe b-animate-go swipebox">
+            <div class="choose-btn">
+              <mu-checkbox v-model="checkbox" value="eat" label="删除"></mu-checkbox>
+            </div>
             <div class="gal-spin-effect vertical" @click="openPhoto(item.src)">
-              
               <img :src="item.src" height="420" alt=" " />
               <div class="gal-text-box">
                 <div class="info-gal-con">
@@ -53,8 +51,8 @@
         <div class="col-md-3 baner-top ban-mar" v-else :key="index">
           <a class="b-link-stripe b-animate-go swipebox">
             <div class="choose-btn">
-                <mu-checkbox v-model="checkbox" value="eat" label="删除"></mu-checkbox>
-                </div>
+              <mu-checkbox v-model="checkbox" value="eat" label="删除"></mu-checkbox>
+            </div>
             <div class="gal-spin-effect vertical" @click="openPhoto(item.src)">
               <img :src="item.src" height="240" alt=" " />
               <div class="gal-text-box">
@@ -80,16 +78,16 @@ export default {
       piclist_item: "",
       currentPage: 5,
       resultImgList: [],
-      currentType:'风景',
-      isOpen:false,
-      checkbox:false
+      currentType: "风景",
+      isOpen: false,
+      checkbox: false
     };
   },
   computed: {},
   methods: {
-    chooseType(type){
- this.currentType=type
- this.isOpen=false;
+    chooseType(type) {
+      this.currentType = type;
+      this.isOpen = false;
     },
     openPhoto(src) {
       this.piclist_item = src;
@@ -100,7 +98,14 @@ export default {
       for (let index = 1; index < 18; index++) {
         arr.push("http://img.zangzhihong.com/background" + index + ".jpg");
       }
-      var telemptArr = [true, true,false,false,false,false]; /* 模板，1，2为大图，3，4,5为大图,利用该模板无限循环即可循环所有的图 */
+      var telemptArr = [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ]; /* 模板，1，2为大图，3，4,5为大图,利用该模板无限循环即可循环所有的图 */
       let index = 0;
       arr.map(item => {
         if (index > 5) index = 0;
@@ -119,7 +124,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .photo h3 {
   font-family: "Ruda", sans-serif;
   font-size: 24px;
@@ -143,7 +147,7 @@ export default {
   background-size: 100% 100%;
   z-index: 9999;
 }
-.swipebox-slider img{
+.swipebox-slider img {
   width: 100%;
   height: 100%;
 }
@@ -159,11 +163,11 @@ export default {
   font-size: 50px;
   background: rgba(0, 0, 0, 0.8);
 }
-.choose-btn{
- position: absolute;
-    right: 10px;
-    bottom: -5px;
-    z-index: 900;
+.choose-btn {
+  position: absolute;
+  right: 10px;
+  bottom: -5px;
+  z-index: 900;
 }
 /*--gallery--*/
 .gallery-grids {
@@ -180,13 +184,12 @@ export default {
   margin: 35px 0;
 }
 .baner-top {
-
   float: left;
 }
 .baner-top a {
-    position: relative;
+  position: relative;
   padding: 10px 10px;
-    padding-bottom: 24px;
+  padding-bottom: 24px;
   display: block;
   box-shadow: 0px 0px 9px #bdbdbd;
 }
@@ -243,11 +246,9 @@ export default {
 }
 .gal-spin-effect .gal-text-box * {
   z-index: 3;
-  font-family: 'Marck Script';
+  font-family: "Marck Script";
   font-style: normal;
   font-weight: 400;
-
-
 }
 .gal-spin-effect .gal-text-box:after,
 .gal-spin-effect .gal-text-box:before {
