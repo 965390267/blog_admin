@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper">
-       <!-- <h3>
+  <div class="weiyuwrapper">
+       <h3>
       <i class="fa fa-angle-right"></i> 微语
     </h3>
-    <hr /> -->
+    <hr />
     <ul>
       <template v-for="(item,index) in 17">
         <li class="weiyuItem in" :key="index" v-if="index%2==0">
@@ -176,13 +176,15 @@ export default {
     }
   },
   mounted() {
-    this.pic3D(document.querySelectorAll(".wrapper .direat"));
+    this.pic3D(document.querySelectorAll(".weiyuItem .direat"));
   }
 };
 </script>
 <style scoped>
-
- .wrapper h3 {
+.weiyuwrapper{
+  padding:0 40px 0 30px;
+}
+ .weiyuwrapper h3 {
   font-family: "Ruda", sans-serif;
   font-size: 24px;
   color: rgb(121, 121, 121);
@@ -190,7 +192,7 @@ export default {
   /* margin-top: 20px; */
   margin-bottom: 10px;
 }
-.wrapper hr {
+.weiyuwrapper hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
@@ -206,7 +208,7 @@ export default {
 }
 
 /* 3D鼠标随动效果 */
-.wrapper .picwrap {
+.weiyuwrapper .picwrap {
   position: relative;
   width: 180px;
   height: 180px;
