@@ -19,8 +19,9 @@ nav, output, ruby, section, summary, time, mark, audio, video {
 }
 html,body,#app{
 	height: 100%;
-	overflow-x: hidden;
     overflow-y: auto;
+    min-width: 1080px;
+    overflow-x: auto;
 }
 
 body {
