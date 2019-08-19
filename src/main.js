@@ -35,6 +35,8 @@ Vue.use(Message);
 window.alert=Message.alert;
 window.confirm=Message.confirm;
 window.prompt=Message.prompt;
+
+Vue.prototype.bus = new Vue;
 /* muse UI弹框插件 */
 Vue.config.productionTip = false;
 

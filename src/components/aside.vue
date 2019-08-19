@@ -1,14 +1,16 @@
 <template>
     <aside id="sidebar">
-          <div  class="nav-collapse " :style="{marginLeft:move+'px'}">
+          <div  class="nav-collapse ">
               <!-- sidebar menu start-->
                <el-menu
-      default-active="1" 
+      :default-active="$route.fullPath" 
       router
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
-      active-text-color="#68dff0">
+      active-text-color="#68dff0"
+      :collapse="isCollapse"
+      >
        <p class="avator">
            <img src="@/assets/img/ui-sam.jpg" class="img-circle" width="60">
            </p>   
@@ -56,8 +58,8 @@
 export default {
   data(){
 return{
-move:0,
-username:'Admin'
+username:'Admin',
+isCollapse:false
 }
   },
  
@@ -80,26 +82,30 @@ username:'Admin'
       console.log(key, keyPath);
     },
     toggle(){
-if(this.move==-210){
-  this.move=0
-}else{
-  this.move=-210;
-}
+ 
     }
   },
   mounted(){
 this. getusermes()
+this.bus.$on('isCollapse',(data) =>{
+  console.log('999');
+  
+            this.isCollapse = !!data;
+        })
     
   }
 };
 </script>
 <style scoped>
 #sidebar{
-  width: 200px;
+  /* width: 200px; */
   height: 100%;
-  /* background: rgb(66, 74, 93); */
   box-shadow: 1px 0px 20px rgba(0,0,0,0.08);
 }
+ .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 180px;
+    min-height: 400px;
+  }
 .iconfont::before{
   font-size: 18px;
 }

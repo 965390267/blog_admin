@@ -1,8 +1,8 @@
 <template>
 <mu-appbar style="width: 100%;" color="primary">
 
-  <mu-button flat>
-    <div class="iconfont icon-zhankai tooltips" @click="toggle()"></div>
+  <mu-button flat  @click="toggle()">
+    <div class="iconfont icon-zhankai tooltips"></div>
   </mu-button>
   Title
 
@@ -83,7 +83,8 @@ export default {
   data() {
     return {
       isrotate: false,
-      isFullScreen:false
+      isFullScreen:false,
+      isCollapse:true
     };
   },
   methods: {
@@ -117,7 +118,10 @@ export default {
     theme.use(color);
     },
     toggle(e) {
-      this.$emit("change");
+      console.log('99');
+      
+      this.isCollapse=!this.isCollapse;
+      this.bus.$emit('isCollapse',this.isCollapse)
     },
     logout() {
       this.$http.get("api/logout").then(res => {

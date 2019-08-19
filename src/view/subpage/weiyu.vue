@@ -146,6 +146,8 @@ export default {
       Index.prototype.addClass = function(e, item, state, index) {
         var direction = this.getDirection(e, index);
         var class_suffix = "";
+        console.log(direction );
+        
         switch (direction) {
           case 0:
             class_suffix = "-top";
@@ -160,7 +162,7 @@ export default {
             class_suffix = "-left";
             break;
         }
-        item.className = "";
+        item.className = "direat";
         item.classList.add(state + class_suffix);
       };
       Index.prototype.getDirection = function(e, index) {
