@@ -84,7 +84,7 @@ export default {
     return {
       isrotate: false,
       isFullScreen:false,
-      isCollapse:true
+      isCollapse:false
     };
   },
   methods: {

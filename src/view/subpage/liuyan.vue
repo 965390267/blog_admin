@@ -1,6 +1,6 @@
 <template>
   <div class="ylcon">
-    <p class="tit">所有留言</p>
+    <p class="tit">留言</p>
     <div id="messDivId">
         <div class="story-item">
             <div class="ds-avatar">
@@ -45,20 +45,21 @@
       </div>
         </div>
     </div>
-    <comments></comments>
+    <Emotion></Emotion>
   </div>
 </template>
 <script>
-import comments from '@/components/receivebox/child'
+import Emotion from '@/components/receivebox/commonbox'
 export default {
     components:{
-comments
+Emotion
     },
     data(){
         return{
-
+    
         }
     },
+
     methods:{
 
     },
@@ -164,4 +165,5 @@ comments
   top: 0;
   right: 0;
 }
+
 </style>
