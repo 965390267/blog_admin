@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <a href='https://graph.qq.com/oauth2.0/authorize?client_id=101772040&response_type=token&scope=all&redirect_uri=http://admin.zangzhihong.com/admin/index.html'>
+            <em><img src="/images/login/QQ.png" /></em>
+            <span>QQ</span>
+        </a>
+    <!-- <input type='button' onclick="openauth()"></input> -->
+    <script type="text/javascript" src="http://connect.qq.com/qc_jssdk.js" data-appid="101772040" data-redirecturi="http://admin.zangzhihong.com/admin/index.html"  charset="utf-8"
+        data-callback="true"></script>
+    <script>
+        /* data-appid="101772040" data-redirecturi="http://admin.zangzhihong.com/index.html" */
+
+
+        setTimeout(function() {
+            QC.api('get_user_info', {  }).success(function (s) {
+            console.log(s);
+            var islogin = QC.Login.check()
+            if (islogin) {
+                QC.Login.getMe(function (openId, accessToken) {
+
+                    alert(["当前登录用户的", "openId为：" + openId, "accessToken为：" + accessToken].join("\n"));
+
+                });
+            }
+        }).error(function (f) {
+            console.log(f);
+
+        }).complete(function (c) {
+            console.log(c);
+
+        })
+        },300)
+       
+
+    </script>
+
+
+</body>
+
+</html>

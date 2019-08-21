@@ -17,6 +17,9 @@ export default {
 .is-center{
  padding: 24px;
 }
+.mu-button{
+  text-transform: capitalize;
+}
 .article-content p  {/* 文章列表页下的文章展开样式 */
 color: #58666e;
 padding: 5px 0;

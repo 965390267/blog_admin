@@ -70,7 +70,10 @@ export default {
       }
     },
     mounted(){
-
+     this.$http.get('https://graph.qq.com/oauth2.0/me?access_token=601207809762632C3DC476D612234C00').then(res=>{
+       console.log(res);
+       
+     })
     }
 }
 </script>
