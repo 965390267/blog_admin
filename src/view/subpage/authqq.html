@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <span id="qqLoginBtn"></span>
+    <script type="text/javascript"
+src="http://connect.qq.com/qc_jssdk.js" charset="utf-8" data-appid="101772040" data-callback="true" data-redirecturi="http://admin.zangzhihong.com/index.html"></script>
+<script>
+//   QC.Login({
+//        btnId:"qqLoginBtn",	//插入按钮的节点id
+       
+// });
+var cbLoginFun = function(oInfo, oOpts){
+    alert(oInfo.nickname); // 昵称
+    alert(oOpts.btnId);    // 点击登录的按钮Id
+};
+QC.Login({btnId:"qqLoginBtn"}, cbLoginFun);
+</script>
+</body>
+</html>

@@ -45,14 +45,17 @@
       </div>
         </div>
     </div>
-    <Emotion></Emotion>
+    <Emotion @emojiSelected="emojiSected"></Emotion>
+     <h3 contenteditable="true" ref="demo">
+     vue-mobile-emoji (可编辑)
+   </h3>
   </div>
 </template>
 <script>
-import Emotion from '@/components/receivebox/commonbox'
+ import Emotion from '@/components/emjoy/vme'
 export default {
     components:{
-Emotion
+ Emotion
     },
     data(){
         return{
@@ -61,7 +64,10 @@ Emotion
     },
 
     methods:{
-
+  emojiSected(emoji, base64) {
+        const dom = this.$refs.demo.innerHTML + `<img src="${base64}" />`;
+        this.$refs.demo.innerHTML = dom;
+      }
     },
     mounted(){
 
