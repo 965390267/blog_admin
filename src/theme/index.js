@@ -158,6 +158,45 @@ const themeConfig={
       mainbg:'#BDC2CA',
       text:'#ccc',
     }
+  },
+  "white":
+  {
+    primary: '#F6FAFD',
+    secondary: '#000',
+    success: '#4caf50',
+    warning: '#fdd835',
+    info: '#ccc',
+    error: '#f44336',
+    track: '#757575',
+    text: {
+      primary: '#757575',
+      secondary: 'rgba(255, 255, 255, 0.7)',
+      alternate: '#303030',
+      disabled: 'rgba(255, 255, 255, 0.3)',
+      hint: 'rgba(255, 255, 255, 0.3)' // 提示文字颜色
+    },
+    divider: 'rgba(255, 255, 255, 0.3)',
+    background: {
+      paper: '#424242',
+      chip: '#616161',
+      default: '#F6FAFD',
+      linearGradient:"linear-gradient(to right, #AECCCE 0%, #89D9B2 100%)"
+    },
+    theme:{
+      background:'#F3927F'
+    },
+    aside:{
+     mainbg:'#E2F2FF',
+     asidetext:'#90969D',
+     asideactive:'#F3927F',
+     activebackground:'#ccc'
+    }, commen:{
+      background:'rgba(255,255,255,.5)'
+     },
+    footer:{
+      mainbg:'#BDC2CA',
+      text:'#ccc',
+    }
   }
 }
 
@@ -170,7 +209,8 @@ theme.add('green', themeConfig.green, 'LightGreen');
 /* 浅粉色主题 */
 theme.add('pink', themeConfig.pink, 'pinktheme');
 /* 浅粉色主题 */
-
+theme.add('white', themeConfig.white, 'whitetheme');
+/* 浅白色主题 */
 
 /* 如果有新加入的样式，需要添加到主题样式中， 则需要使用 addCreateTheme(func) 添加到themes集中控制。 */
 

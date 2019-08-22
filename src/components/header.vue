@@ -53,6 +53,11 @@
           <mu-list-item-title>淡雅粉</mu-list-item-title>
         </mu-list-item-content>
       </mu-list-item>
+       <mu-list-item button @click="chooseTheme('white')">
+        <mu-list-item-content>
+          <mu-list-item-title>浅白色</mu-list-item-title>
+        </mu-list-item-content>
+      </mu-list-item>
       
     </mu-list>
   </mu-menu>

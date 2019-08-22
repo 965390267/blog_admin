@@ -37,27 +37,7 @@
           </div>
         </div>
         <div class="article-base-right">
-          <div>
-            <input class="upload" type="file" ref="file" multiple @change="ViewImg($event.target.files[0])" />
-            <mu-paper            
-              class="small-bg-wrap"
-              :z-depth="5"
-              @click="openfile()"
-              @drop='drop($event)'
-              @dragover="dragover($event)"
-            >
-            <div class="small-bg"  :style="{backgroundImage:'url('+thumbnail+')'}">
-              <i v-if="isUpLOAD" class="iconfont icon-iconfontadd iconset"></i>
-              <!-- 图片容器 -->
-            </div>
-              
-              <div class="progress-bar">
-            <mu-linear-progress :value="50" mode="determinate"></mu-linear-progress>
-            </div>
-            </mu-paper>
-            
-          </div>
-          <mu-button class="upload-sm-img" round @click="uploadimg()" color="success">上传缩略图</mu-button>
+         <Upload></Upload>
         </div>
       </div>
       <div class="adminstration-right toolbar self-background-color">
@@ -73,53 +53,34 @@
   </div>
 </template>
 <script>
+import Upload from '@/components/upload'
 import Edit from "@/components/edit.vue";
 import MarkEdit from "@/components/markdownedit.vue";
 import * as qiniu from 'qiniu-js';
 export default {
   components: {
     Edit,
-    MarkEdit
+    MarkEdit,
+    Upload
   },
   data() {
     return {
-      switchEdit:false,
-      isUpLOAD: true,
-      column: "",
-      thumbnail: "",
+      switchEdit:false,  
       title: "",
       author: "",
       time: "",
       head_img: "",
       imgsrc: "",
       tag: "",
-      imgFile: {},
-      fileObj:{}
+     
     };
   },
   methods: {
-    dragover(e){
-      e.preventDefault();
-    },
-    drop(e){
-       this.ViewImg(e.dataTransfer.files[0])
-    },
+   
     chooseEdit(){
      toast.success({message:this.switchEdit?'已切换到markdown':'已切换到富文本'})
     },
-    openfile() {
-      this.$refs.file.click();
-    },
-    ViewImg(filsobj) {
-      this.fileObj=filsobj;
-      const fileread = new FileReader();
-      fileread.readAsDataURL(filsobj);
-      fileread.onload = e => {
-        this.isUpLOAD = false;
-        this.thumbnail = e.target.result;
-      };
-      fileread.onerror=()=>{this.isUpLOAD = true;}
-    },
+   
     uploadimg() {
     const file = this.fileObj;
       const key = file.name;
@@ -179,41 +140,11 @@ hr {
 .clearMarginbottom {
   margin-bottom: 0;
 }
-.upload {
-  display: none;
-}
 .setfontsize{
   padding-top: 20px;
   font-size: 12px;
 }
-.small-bg-wrap {
- position: relative;
-  width: 180px;
-  height: 130px;
-}
-.small-bg{
-  display: inline-block;
-   text-align: center;
-  background-size: 100% 100%;
-  width: 180px;
- height: 126px;
- line-height: 120px;
-}
-.progress-bar{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-   width: 180px;
-  
-}
-.upload-sm-img{
-    margin-top: 20px;
-  margin-left:8%;
-}
-.iconset {
-  font-size: 24px;
-  line-height: 120px;
-}
+
 .send-article{
   text-align: right;
   margin-top: 30px;
