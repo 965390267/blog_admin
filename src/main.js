@@ -3,10 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-/* 自定义样式引入 */
-import './assets/css/reset.css'
-import  './assets/icon/iconfont.css'
-/* 自定义样式引入 */
+
 /* element相关按需引入 */
 import element from './element'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -35,7 +32,10 @@ Vue.use(Message);
 window.alert=Message.alert;
 window.confirm=Message.confirm;
 window.prompt=Message.prompt;
-
+/* 自定义样式引入 */
+import './assets/css/reset.css'
+import  './assets/icon/iconfont.css'
+/* 自定义样式引入 */
 Vue.prototype.bus = new Vue;
 /* muse UI弹框插件 */
 Vue.config.productionTip = false;

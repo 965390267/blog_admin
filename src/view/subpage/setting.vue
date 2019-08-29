@@ -49,16 +49,22 @@
               <div class="add-article-box-content"> <span class="prompt-text">请确定您对所有选项所做的更改</span> </div>
               <div class="add-article-box-footer">
            <mu-button color="primary">更新</mu-button>
+          
               </div>
             </div>
           </div>
           </div>
 </template>
 <script>
+import rotate from '@/components/translate_3D_img'
 export default {
+  components:{
+
+  },
     data(){
         return{
-
+          title:'',
+          value9:''
         }
     },
     methods:{

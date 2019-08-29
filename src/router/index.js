@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from '@/view/login'
-import main from '@/view/main'
-import allmessage from '@/view/subpage/allmessage'
+
 Vue.use(Router)
 
 const router= new Router({
@@ -10,16 +8,16 @@ const router= new Router({
     {
       path: '/',
       name: 'login',
-      component:login
+      component: ()=>import('@/view/login'),
     },
     {
       path:'/main',
       name:'main',
-      component: main,
+      component:  ()=>import('@/view/main'),
       children:[{
         path: '/main',
         name: 'allmessage',
-        component: allmessage
+        component: ()=>import('@/view/subpage/allmessage')
       },{
         path: '/main/sendarticle',
         name: 'sendarticle',

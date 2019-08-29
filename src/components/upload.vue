@@ -14,13 +14,12 @@
               <!-- 图片容器 -->
             </div>
               
-              <div class="progress-bar">
+              <!-- <div class="progress-bar">
             <mu-linear-progress :value="50" mode="determinate"></mu-linear-progress>
-            </div>
-            </mu-paper>
-            
+            </div> -->
+            </mu-paper>  
           </div>
-          <mu-button class="upload-sm-img" round @click="uploadimg()" color="success">上传缩略图</mu-button>
+        <div class="upload-note"><i class="mu-error-text-color">#</i> 拖动图片上传文章列表缩略图</div>
     </div>
 </template>
 <script>
@@ -79,14 +78,17 @@ export default {
     font-size: 24px;
     line-height: 120px;
 }
-.progress-bar{
+/* .progress-bar{
     position: absolute;
     bottom: 0;
     left: 0;
     width: 180px;
+} */
+.upload-note {
+    margin-top: 10px;
+  color: #bdbdbd;
 }
-.upload-sm-img {
-    margin-top: 20px;
-    margin-left: 8%;
+.mu-error-text-color {
+    color: #f44336;
 }
 </style>

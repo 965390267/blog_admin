@@ -162,8 +162,10 @@ a, a:hover, a:focus {
 .badge.bg-inverse {
     background: #2A3542;
 }
-
-
+/* muse 样式覆盖 */
+.mu-dialog{
+    border-radius: 10px;
+}
 
 .ui-sortable li.list-primary {
     border-left: 3px solid #41CAC0;

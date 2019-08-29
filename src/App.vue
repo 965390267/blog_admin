@@ -31,15 +31,5 @@ letter-spacing: 2px;
   padding: 5px;
   background-color: #fff;
 }
-.sheep {
-  position: absolute;
-  width: 164px;
-  height: 122px;
-  background-image: url("./assets/img/sheep.png");
-  background-position: 0 0;
-  cursor: -webkit-grabbing;
-  background-repeat: no-repeat;
-  bottom: 20px;
-  right: -164px;
-}
+
 </style>
