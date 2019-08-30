@@ -235,6 +235,7 @@ input:focus {
     box-shadow:
         0 15px 30px 0 rgba(255,255,255,.15) inset,
         0 2px 7px 0 rgba(0,0,0,.2);
+          cursor: url('../assets/img/cursor/hover.png'), auto;
 }
 
 button:active {

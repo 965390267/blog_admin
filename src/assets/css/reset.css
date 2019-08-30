@@ -32,6 +32,7 @@ body {
     background: #f2f2f2 url('../img/blueprint.png');
     background-attachment: fixed;
     z-index: -1;
+    cursor: url('../img/cursor/default.png'), auto;
 }
 ::-webkit-scrollbar {
     width: 4px;
@@ -79,6 +80,14 @@ table {
 a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
+    
+}
+
+button:hover,a:hover,li:hover{
+    cursor: url('../img/cursor/hover.png'), auto;
+}
+input:focus,textarea:hover{
+    cursor: url('../img/cursor/default.cur'), auto;
 }
 ::selection {
 

@@ -75,6 +75,7 @@ export default {
     width: 100%;
   position: relative;
   perspective: 1000px;
+  overflow: hidden;
 }
 .box .box-img {
      height: 100%;
@@ -82,9 +83,9 @@ export default {
   transform: rotateY(0);
   transition: all 0.5s ease-in-out 0s;
 }
-/* .box:hover .box-img {
-  transform: rotateY(-180deg);
-} */
+.box:hover .box-img {
+  /* transform: rotateY(180deg); */
+}
 .box .box-img img {
   width: 100%;
   height: 100%;
@@ -105,7 +106,7 @@ export default {
   transition: all 0.5s ease-in-out 0s;
 }
 .box:hover .box-content {
-  transform: rotateY(0);
+  transform: rotateY(0deg);
 }
 .box .title {
   font-size: 20px;
