@@ -122,10 +122,11 @@
           <td class="is-right">{{scope.row.carbs}}</td>
           <td class="is-right">{{scope.row.protein}}</td>
           <td class="is-right">{{scope.row.iron}}%</td>
+           <td class="is-right"> <a class="edit" @click="openAlertDialog()">编辑</a><a class="delate">删除</a> </td>
         </template>
       </mu-data-table>
        <div class="divpage">
-      <mu-pagination
+      <mu-pagination class="page-next-last"
         raised
         circle
         :total="count"
@@ -139,7 +140,11 @@
   </div>
 </template>
 <script>
+
 export default {
+  components:{
+
+  },
   data() {
     return {
       title:'',
@@ -303,6 +308,31 @@ export default {
   border-radius: 10px;
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
+
+/* mu表格样式修复 */
+.is-right {
+  padding: 24px;
+  text-align: center !important;
+}
+/* mu表格样式修复 */
+/* 编辑和删除按钮样式 */
+.edit{
+    font-size: 14px;
+    color: #207FF8;
+    padding: 10px;
+}
+.delate{
+   margin-left: 15px;
+   font-size: 14px;
+   color: #A6A6A6;
+     padding: 10px;
+}
+/* 编辑和删除按钮样式 */
+/* 上一页下一页居中 */
+.page-next-last{
+ justify-content: center;
+}
+/* 上一页下一页居中 */
 /* 弹出遮罩层内容 */
 .alert-header{
   text-align: center;

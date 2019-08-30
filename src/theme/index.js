@@ -279,5 +279,6 @@ theme.addCreateTheme((theme) => {/* 侧边栏样式底部样式 */
 }
   `;
 });
-theme.use('light')
+let localThemeColor=localStorage.getItem('themecolor')||'light';
+theme.use(localThemeColor)
 export default theme;

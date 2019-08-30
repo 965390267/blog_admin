@@ -44,7 +44,7 @@ export default {
     }
   },
   mounted() {
-    this.getusermes();
+    // this.getusermes();
   }
 };
 </script>
