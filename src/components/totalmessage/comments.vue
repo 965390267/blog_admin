@@ -1,16 +1,8 @@
 <template>
   <div class="comments">
     <!-- <TimeLine></TimeLine> -->
-    
     <light-timeline :items="items">
-       <!-- <template slot='tag' slot-scope='{ item }'>
-      {{item.date}}
-    </template> -->
-      <!-- <template slot='symbol' slot-scope='{ item }'>
-      <div class="my_icon_class"><i :class="item.class"></i></div>
-    </template> -->
       <template slot="content" slot-scope="{ item }">
-        <!-- {{item.content}} -->
         <CommonList></CommonList>
       </template>
     </light-timeline>
@@ -20,10 +12,12 @@
 <script>
 import TimeLine from "../timeline/TimeLine";
 import CommonList from "./commentList";
+
 export default {
   components: {
     TimeLine,
-    CommonList
+    CommonList,
+    
   },
   data() {
     return {

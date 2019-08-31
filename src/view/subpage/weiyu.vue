@@ -49,6 +49,9 @@
       </mu-list>-->
       <mu-button slot="actions" flat color="primary" @click="closeFrame()">ok</mu-button>
     </mu-dialog>
+    <!-- <div class="contextmenu" :style="{left:positonX,top:positionY}">
+dfdsf
+    </div> -->
   </div>
 </template>
 <script>
@@ -59,7 +62,9 @@ rotate
   },
   data() {
     return {
-      openScroll: false
+      openScroll: false,
+      positonX:0,/* 右键弹出位置 */
+      positionY:0/* 右键弹出位置 */
     };
   },
   methods: {
@@ -72,7 +77,19 @@ rotate
     }
   },
   mounted() {
-   
+   document.oncontextmenu = function(e) {
+    return false;
+}
+document.onmousedown = (e)=> {
+
+if(e.button==2){
+  console.log(this);
+  
+  let {pageX,pageY}=e;
+   this.positonX=pageX+'px';
+   this.positionY=pageY+'px';
+}
+}
   }
 };
 </script>
@@ -102,6 +119,14 @@ rotate
 .leftcontent {
   flex: 1;
 }
+/* 右键样式 */
+.contextmenu{
+  position: fixed;
+  width: 80px;
+  height: 200px;
+  box-shadow: 0 0 15px 6px rgba(0, 0, 0, .6);
+}
+/* 右键样式 */
 /* 右边消息 */
 .message {
   position: relative;

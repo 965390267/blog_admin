@@ -1,10 +1,9 @@
 <template>
     <div class="rightaside">   
         <!-- <Note></Note>  -->
-        
-        <weatherCard></weatherCard>
+         <weatherCard></weatherCard>
                 <!-- <headCard></headCard> -->
-                 <Brower></Brower>
+                 <!-- <Brower></Brower> -->
         <CalendarBox></CalendarBox>
 
     </div>
@@ -13,12 +12,12 @@
 <script>
 import headCard from './personCard'
 import Note from "@/components/note";
-import weatherCard from "@/components/weatherCard";
+import weatherCard from "@/components/weather";
 import CalendarBox from "@/components/totalmessage/calendar";
 import Brower from "@/components/brower";
 export default {
     components:{
-        headCard,CalendarBox,Note,weatherCard,Brower
+        headCard,CalendarBox,Note,Brower,weatherCard
     }
 }
 </script>
