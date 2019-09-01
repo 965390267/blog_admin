@@ -4,8 +4,8 @@
          <weatherCard></weatherCard>
                 <!-- <headCard></headCard> -->
                  <!-- <Brower></Brower> -->
-        <CalendarBox></CalendarBox>
-
+        <!-- <CalendarBox></CalendarBox> -->
+<NewArticle></NewArticle>
     </div>
 </template>
 
@@ -15,9 +15,11 @@ import Note from "@/components/note";
 import weatherCard from "@/components/weather";
 import CalendarBox from "@/components/totalmessage/calendar";
 import Brower from "@/components/brower";
+import NewArticle from "./mostNewArticle";
 export default {
     components:{
-        headCard,CalendarBox,Note,Brower,weatherCard
+        headCard,CalendarBox,Note,
+        Brower,weatherCard,NewArticle
     }
 }
 </script>

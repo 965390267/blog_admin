@@ -11,6 +11,7 @@ const themeConfig={
     info: '#bdbdbd',
     error: '#f44336',
     track: '#bdbdbd',
+    headerIcon:'#fff',
     text: {
       primary: 'rgba(0, 0, 0, 0.87)',
       secondary: 'rgba(0, 0, 0, 0.54)',
@@ -50,6 +51,7 @@ const themeConfig={
     info: '#ccc',/* 信息提示背景色 */
     error: '#f44336',/* 错误背景色 */
     track: '#757575',
+    headerIcon:'#fff',
     text: {/* 文本 */
       primary: '#424242',/* 在body标签中设置全局字体color颜色 */
       secondary: 'rgba(255, 255, 255, 0.7)',
@@ -89,6 +91,7 @@ const themeConfig={
     info: '#ccc',
     error: '#f44336',
     track: '#757575',
+    headerIcon:'#fff',
     text: {
       primary: '#616161',
       secondary: 'rgba(255, 255, 255, 0.7)',
@@ -129,6 +132,7 @@ const themeConfig={
     info: '#ccc',
     error: '#f44336',
     track: '#757575',
+    headerIcon:'#fff',
     text: {
       primary: '#757575',
       secondary: 'rgba(255, 255, 255, 0.7)',
@@ -175,12 +179,14 @@ const themeConfig={
       disabled: 'rgba(255, 255, 255, 0.3)',
       hint: 'rgba(255, 255, 255, 0.3)' // 提示文字颜色
     },
+    headerIcon:'#757575',
     divider: 'rgba(255, 255, 255, 0.3)',
     background: {
       paper: '#424242',
       chip: '#616161',
       default: '#F6FAFD',
-      linearGradient:"linear-gradient(to right, #AECCCE 0%, #89D9B2 100%)"
+      //linearGradient:"linear-gradient(to right, #ddd6f3 0%, #faaca8 100%)"
+      linearGradient:"linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)"
     },
     theme:{
       background:'#F3927F'
@@ -216,6 +222,9 @@ theme.add('white', themeConfig.white, 'whitetheme');
 
 theme.addCreateTheme((theme) => {/* 侧边栏样式底部样式 */
   return `
+  .header-icon{
+    color:${theme.headerIcon}
+  },
   .site-footer{
     background:${theme.footer.mainbg}
 }

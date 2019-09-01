@@ -26,6 +26,7 @@
 <style scope>
 /* 播放器控制部分 */
 .play-contrals {
+  display: none;
   position: absolute;
   bottom: 0;
   left: 0;

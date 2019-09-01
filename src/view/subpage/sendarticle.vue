@@ -4,64 +4,23 @@
       <i class="fa fa-angle-right"></i> 文章发布
     </h3>
     <hr />
-    <div class="efitwrap">
-      <div class="article-base">
-        <div class="article-base-left">
-          <div>
-            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="title" label="请在此处输入文章标题" label-float></mu-text-field>
-          </div>
-          <div>
-            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="author" label="作者" label-float></mu-text-field>
-          </div>
-          <div>
-            <mu-date-input
-             color='#ff8a65'
-              class="clearMarginbottom"
-              v-model="time"
-              label="日期"
-              container="dialog"
-              label-float
-              type="dateTime"
-            ></mu-date-input>
-          </div>
-        </div>
-        <div class="article-base-mid">
-          <div>
-            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="title" label="标签 多个标签用,号隔开" label-float></mu-text-field>
-          </div>
-          <div>
-            <mu-text-field class="clearMarginbottom"  color='#ff8a65' v-model="title" label="归类" label-float></mu-text-field>
-          </div>
-          <div class="mu-info-text-color setfontsize">
-           <i class="mu-error-text-color">#</i>默认富文本，可选MD<mu-switch v-model="switchEdit" @change='chooseEdit()'></mu-switch>
-          </div>
-        </div>
-        <div class="article-base-right">
-         <Upload></Upload>
-        </div>
-      </div>
-      <div class="adminstration-right toolbar self-background-color">
-        <!-- 富文本编辑器 -->
-        <Edit v-if='!switchEdit'></Edit>
-        <MarkEdit v-if='switchEdit'></MarkEdit>
-      </div>
-      <div class="send-article">
+   <ArticleEdit></ArticleEdit>
+    <div class="send-article">
       <mu-button  round  class="add-btn-bg">文章发布</mu-button>
       </div>
- 
-    </div>
   </div>
 </template>
 <script>
-import Upload from '@/components/upload'
-import Edit from "@/components/edit.vue";
-import MarkEdit from "@/components/markdownedit.vue";
-import * as qiniu from 'qiniu-js';
+ import ArticleEdit from '@/components/ArticleEdit'
+// import Edit from "@/components/edit.vue";
+// import MarkEdit from "@/components/markdownedit.vue";
+// import * as qiniu from 'qiniu-js';
 export default {
   components: {
-    Edit,
-    MarkEdit,
-    Upload
+    // Edit,
+    // MarkEdit,
+    // Upload
+    ArticleEdit
   },
   data() {
     return {
@@ -127,22 +86,6 @@ hr {
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #797979;
-}
-.article-base {
-  display: flex;
-  justify-content: space-between;
-}
-.article-base-left,
-.article-base-mid,
-.article-base-right {
-  flex: 1;
-}
-.clearMarginbottom {
-  margin-bottom: 0;
-}
-.setfontsize{
-  padding-top: 20px;
-  font-size: 12px;
 }
 
 .send-article{

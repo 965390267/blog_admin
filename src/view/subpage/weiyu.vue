@@ -9,7 +9,7 @@
     </div>
     <ul>
       <template v-for="(item,index) in 17">
-        <li class="weiyuItem in" :key="index" v-if="index%2==0" @mousedown="downPosition($event,'2656596')">
+        <li class="weiyuItem in" :key="index" v-if="index%2==0" @mousedown="downPosition($event,'http://img.zangzhihong.com/background'+item+'.jpg')">
           <rotate :imgSrc="'http://img.zangzhihong.com/background'+item+'.jpg'"></rotate>
           <div class="leftcontent">
             <div class="message">
@@ -26,7 +26,7 @@
             <mu-button flat @click="edit()">编辑</mu-button>-->
           </div>
         </li>
-        <li class="weiyuItem out" v-else :key="index">
+        <li class="weiyuItem out" v-else :key="index"  @mousedown="downPosition($event,'http://img.zangzhihong.com/background'+item+'.jpg')">
           <div class="right_edit"></div>
           <div class="leftcontent">
             <div class="message">
@@ -49,7 +49,7 @@
       :overlay-close="false"
       :open.sync="openAlert"
     >
-      <div class="alert-header">音乐上传</div>
+      <div class="alert-header">微语发布</div>
       <div class="alert-content">
         <div class="alert-content-input">
           <mu-text-field
@@ -104,7 +104,7 @@
       </div>
       <div class="alert-button">
         <mu-button slot="actions" flat class="cancel" @click="closeAlertDialog">取消</mu-button>
-        <mu-button slot="actions" flat class="save" @click="closeAlertDialog">保存</mu-button>
+        <mu-button slot="actions" flat class="save" @click="closeAlertDialog">发布</mu-button>
       </div>
     </mu-dialog>
 
