@@ -66,6 +66,7 @@ export default {
 
 <style scoped>
 .adminstration-right {
-  padding-top: 20px;
+     margin-top: 20px;
+    background: #fff;
 }
 </style>

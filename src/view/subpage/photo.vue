@@ -27,45 +27,41 @@
    
     <div class="gallery-grids">
       <template v-for="(item,index) in resultImgList">
-        <div class="col-md-6 baner-top bigImg" v-if="item.bigOrSmall" :key="index">
-           <Photo :imgSrc='item.src'></Photo>
-          <!-- <a class="b-link-stripe b-animate-go swipebox">      
-            <div class="gal-spin-effect vertical" @click="openPhoto(item.src)">
-              <img :src="item.src" height="420" alt=" " />
-              <div class="gal-text-box">
-                <div class="info-gal-con">
-                  <h4>View</h4>
-                </div>
-              </div>
-            </div>
-          </a> -->
+        <div class="col-md-6 baner-top bigImg" v-if="item.bigOrSmall" :key="index" >
+           <Photo :imgSrc='item.src'  @mousedown.native="downPosition($event,item.src)"></Photo>
+         
         </div>
-        <div class="col-md-3 baner-top ban-mar smallImg" v-else :key="index">
-           <Photo :imgSrc='item.src'></Photo>
-          <!-- <a class="b-link-stripe b-animate-go swipebox">
-            <div class="gal-spin-effect vertical" @click="openPhoto(item.src)">
-              <img :src="item.src" height="240" alt=" " />
-              <div class="gal-text-box">
-                <div class="info-gal-con">
-                  <h4>View</h4>
-                </div>
-              </div>
-            </div>
-          </a> -->
+        <div class="col-md-3 baner-top ban-mar smallImg" v-else :key="index"  >
+           <Photo :imgSrc='item.src' @mousedown.native="downPosition($event,item.src)"></Photo>
+         
         </div>
       </template>
       <div class="clearfix"></div>
     </div>
     <!-- /row -->
+    <ContextMenu :mouseRightBtn='btnObj'>
+ <mu-list slot="content">
+        <mu-list-item button @click="test($event)">
+          <mu-list-item-content >
+            <mu-list-item-title >删除</mu-list-item-title>
+          </mu-list-item-content>
+        </mu-list-item>
+        <mu-list-item button>
+          <mu-list-item-content>
+            <mu-list-item-title @click="test($event)">删除</mu-list-item-title>
+          </mu-list-item-content>
+        </mu-list-item>
+      </mu-list>
+</ContextMenu>
   </div>
 </template>
 
 <script>
-// import Photo from '@/components/shadom_hover_img'
+import ContextMenu from "@/components/contextMenu";
 import Photo from '@/components/translate_3D_img'
 export default {
   components:{
-Photo
+Photo,ContextMenu
   },
 
   data() {
@@ -75,11 +71,15 @@ Photo
       resultImgList: [],
       currentType: "风景",
       isOpen: false,
-      checkbox: false
+      checkbox: false,
+      btnObj:null
     };
   },
   computed: {},
   methods: {
+     downPosition(e,articleId){
+      this.btnObj={event:e,articleId:articleId};    
+    },
     chooseType(type) {
       this.currentType = type;
       this.isOpen = false;

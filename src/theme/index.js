@@ -244,6 +244,10 @@ theme.addCreateTheme((theme) => {/* 侧边栏样式底部样式 */
 .messagewrap::after{
   background-image:${theme.background.linearGradient}!important;
 }
+.add-btn-bg{
+  background-image:${theme.background.linearGradient}!important;
+  color:#fff;
+}
 .commetns{
   background:${theme.commen.background}
 }

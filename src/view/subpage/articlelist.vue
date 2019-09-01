@@ -32,7 +32,7 @@
       </template>
     </mu-data-table>
     <div class="divpage">
-      <mu-pagination
+      <mu-pagination class="page-next-last"
         raised
         circle
         :total="count"
@@ -174,9 +174,11 @@ export default {
 }
 
 .divpage {
-  margin: 0 auto;
-  margin-top: 25px;
-  width: 460px;
+
+}
+.page-next-last{
+ justify-content: center;
+ padding: 15px 0 0 0;
 }
 .is-right {
   padding: 24px;

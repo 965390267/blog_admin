@@ -20,7 +20,7 @@ nav, output, ruby, section, summary, time, mark, audio, video {
 html,body,#app{
 	height: 100%;
     overflow-y: auto;
-    min-width: 1080px;
+    min-width: 1400px;
     overflow-x: auto;
 }
 

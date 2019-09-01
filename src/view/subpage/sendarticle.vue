@@ -46,7 +46,7 @@
         <MarkEdit v-if='switchEdit'></MarkEdit>
       </div>
       <div class="send-article">
-      <mu-button  round  color="success">文章发布</mu-button>
+      <mu-button  round  class="add-btn-bg">文章发布</mu-button>
       </div>
  
     </div>

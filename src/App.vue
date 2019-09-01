@@ -1,11 +1,16 @@
 <template>
   <div id="app">
+   <Music></Music>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Music from '@/components/musicContral'
 export default {
+  components:{
+Music
+  },
   name: 'App'
 }
 </script>

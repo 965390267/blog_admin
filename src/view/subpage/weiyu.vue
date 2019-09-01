@@ -1,13 +1,16 @@
 <template>
   <div class="weiyuwrapper">
-       <h3>
+    <h3>
       <i class="fa fa-angle-right"></i> 微语
     </h3>
     <hr />
+    <div class="add-music-btn-wrap">
+      <mu-button class="add-music-btn add-btn-bg" round @click="openAlert=true">添加微语</mu-button>
+    </div>
     <ul>
       <template v-for="(item,index) in 17">
-        <li class="weiyuItem in" :key="index" v-if="index%2==0">
-           <rotate :imgSrc="'http://img.zangzhihong.com/background'+item+'.jpg'"></rotate>
+        <li class="weiyuItem in" :key="index" v-if="index%2==0" @mousedown="downPosition($event,'2656596')">
+          <rotate :imgSrc="'http://img.zangzhihong.com/background'+item+'.jpg'"></rotate>
           <div class="leftcontent">
             <div class="message">
               <span class="arrow"></span>
@@ -20,7 +23,7 @@
           </div>
           <div class="right_edit">
             <!-- <mu-button flat>删除</mu-button>
-            <mu-button flat @click="edit()">编辑</mu-button> -->
+            <mu-button flat @click="edit()">编辑</mu-button>-->
           </div>
         </li>
         <li class="weiyuItem out" v-else :key="index">
@@ -35,39 +38,121 @@
               >Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Reprehenderit butcher retro keffiyeh dreamcatcher synth terry richardsoAustin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.</span>
             </div>
           </div>
-           <rotate :imgSrc="'http://img.zangzhihong.com/background'+item+'.jpg'"></rotate>
+          <rotate :imgSrc="'http://img.zangzhihong.com/background'+item+'.jpg'"></rotate>
         </li>
       </template>
     </ul>
-    <mu-dialog  title="Phone Ringtone" max-width="1080" scrollable :open.sync="openScroll">
-      <!-- <mu-list>
-      <mu-list-item :key="option" v-for="option in options">
-        <mu-list-item-content>
-          <mu-radio  :label="option" :value="option" v-model="ringtone"></mu-radio>
-        </mu-list-item-content>
-      </mu-list-item>
-      </mu-list>-->
-      <mu-button slot="actions" flat color="primary" @click="closeFrame()">ok</mu-button>
+    <mu-dialog
+      width="1000"
+      max-width="80%"
+      :esc-press-close="false"
+      :overlay-close="false"
+      :open.sync="openAlert"
+    >
+      <div class="alert-header">音乐上传</div>
+      <div class="alert-content">
+        <div class="alert-content-input">
+          <mu-text-field
+            class="clearMarginbottom"
+            color="#ff8a65"
+            v-model="title"
+            label="在此处输入歌曲名"
+            label-float
+          ></mu-text-field>
+          <mu-text-field
+            class="clearMarginbottom"
+            color="#ff8a65"
+            v-model="title"
+            label="在此处输入歌曲名"
+            label-float
+          ></mu-text-field>
+        </div>
+
+        <div class="alert-content-input">
+          <mu-text-field
+            class="clearMarginbottom"
+            color="#ff8a65"
+            v-model="title"
+            label="在此处输入歌曲名"
+            label-float
+          ></mu-text-field>
+          <mu-text-field
+            class="clearMarginbottom"
+            color="#ff8a65"
+            v-model="title"
+            label="在此处输入歌曲名"
+            label-float
+          ></mu-text-field>
+        </div>
+
+        <div class="alert-content-input">
+          <mu-text-field
+            class="clearMarginbottom"
+            color="#ff8a65"
+            v-model="title"
+            label="在此处输入歌曲名"
+            label-float
+          ></mu-text-field>
+          <mu-text-field
+            class="clearMarginbottom"
+            color="#ff8a65"
+            v-model="title"
+            label="在此处输入歌曲名"
+            label-float
+          ></mu-text-field>
+        </div>
+      </div>
+      <div class="alert-button">
+        <mu-button slot="actions" flat class="cancel" @click="closeAlertDialog">取消</mu-button>
+        <mu-button slot="actions" flat class="save" @click="closeAlertDialog">保存</mu-button>
+      </div>
     </mu-dialog>
-    <!-- <div class="contextmenu" :style="{left:positonX,top:positionY}">
-dfdsf
-    </div> -->
+
+<ContextMenu :mouseRightBtn='btnObj'>
+ <mu-list slot="content">
+        <mu-list-item button @click="test($event)">
+          <mu-list-item-content >
+            <mu-list-item-title >删除</mu-list-item-title>
+          </mu-list-item-content>
+        </mu-list-item>
+        <mu-list-item button>
+          <mu-list-item-content>
+            <mu-list-item-title @click="test($event)">删除</mu-list-item-title>
+          </mu-list-item-content>
+        </mu-list-item>
+      </mu-list>
+</ContextMenu>
   </div>
 </template>
 <script>
-import rotate from '@/components/rotate_3D_img'
+import rotate from "@/components/rotate_3D_img";
+import ContextMenu from "@/components/contextMenu";
 export default {
-    components:{
-rotate
+  components: {
+    rotate,ContextMenu
   },
   data() {
     return {
+      title: "",
+      openAlert: false,
       openScroll: false,
-      positonX:0,/* 右键弹出位置 */
-      positionY:0/* 右键弹出位置 */
+      btnObj:null,
+
     };
   },
   methods: {
+    test(){
+
+    },
+    downPosition(e,articleId){
+      this.btnObj={event:e,articleId:articleId};    
+    },
+    openAlertDialog() {
+      this.openAlert = true;
+    },
+    closeAlertDialog() {
+      this.openAlert = false;
+    },
     edit() {
       this.openScroll = true;
     },
@@ -76,28 +161,14 @@ rotate
       this.openScroll = false;
     }
   },
-  mounted() {
-   document.oncontextmenu = function(e) {
-    return false;
-}
-document.onmousedown = (e)=> {
-
-if(e.button==2){
-  console.log(this);
-  
-  let {pageX,pageY}=e;
-   this.positonX=pageX+'px';
-   this.positionY=pageY+'px';
-}
-}
-  }
+  mounted() {}
 };
 </script>
 <style scoped>
-.weiyuwrapper{
-  padding:0 40px 0 30px;
+.weiyuwrapper {
+  padding: 0 40px 0 30px;
 }
- .weiyuwrapper h3 {
+.weiyuwrapper h3 {
   font-family: "Ruda", sans-serif;
   font-size: 24px;
   color: rgb(121, 121, 121);
@@ -111,6 +182,19 @@ if(e.button==2){
   border: 0;
   border-top: 1px solid #797979;
 }
+/* 新增文件按钮 */
+.add-music-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 40px 4px 0;
+}
+.add-music-btn {
+  width: 120px;
+  height: 32px;
+  color: #fff;
+  /* background-image:  linear-gradient(to right, #0078FF 0%, #04C3FF 100%); */
+}
+/* 新增文件按钮 */
 .weiyuItem {
   display: flex;
   margin: 10px 0;
@@ -119,14 +203,7 @@ if(e.button==2){
 .leftcontent {
   flex: 1;
 }
-/* 右键样式 */
-.contextmenu{
-  position: fixed;
-  width: 80px;
-  height: 200px;
-  box-shadow: 0 0 15px 6px rgba(0, 0, 0, .6);
-}
-/* 右键样式 */
+
 /* 右边消息 */
 .message {
   position: relative;
@@ -137,12 +214,12 @@ if(e.button==2){
 .in .right_edit {
   width: 60px;
   border-left: 1px solid #e6e6e6;
-background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 .out .right_edit {
   width: 45px;
   border-right: 1px solid #e6e6e6;
-background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 .in .message {
   margin-left: 12px;
@@ -193,5 +270,35 @@ background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   color: #333333;
   padding-top: 10px;
 }
+/* li左右方向样式 */
+
+/* 弹出遮罩层内容 */
+.alert-header {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  letter-spacing: 2px;
+}
+.alert-content {
+  background: #f6fafd;
+}
+.alert-button {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  background: #fff;
+}
+.cancel {
+  border-radius: 20px;
+  background: #bcbcbc;
+  color: #fff;
+}
+.save {
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #0078ff 0%, #04c3ff 100%);
+  color: #fff;
+}
+/* 弹出遮罩层内容 */
 </style>
 

@@ -69,13 +69,12 @@ export default {
 
 }
 .weather-shadom{
-	position: absolute;
-    left: 26%;
-	top: 71px;
-	width: 150px;
-	height: 100px;
-	background: rgba(0, 0, 0, 0.25);
-	
+    position: absolute;
+    /* left: 26%; */
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.35);
 }
 .descriptionWrapper {
   display: flex;
