@@ -77,17 +77,15 @@
   flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
-  margin-top: 110px;
+  margin-top: 80px;
 }
 .card {
   position: relative;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
   flex-direction: column;
   width: 46%;
   min-width: 300px;
-  height: 100px;
+  height: 80px;
   margin: 0 4% 30px 0;
   word-wrap: break-word;
   background-color: #fff;
@@ -101,18 +99,16 @@
     0 3px 6px 0 rgba(198, 198, 198, 0.2);
 }
 .card .row {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -0.75rem;
   margin-left: -0.75rem;
 }
 .circle-icon {
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   position: absolute;
-  margin-top: 13px;
+  margin-top: 8px;
   margin-left: 13px;
   float: right;
   border-radius: 5px;

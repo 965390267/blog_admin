@@ -69,19 +69,9 @@
      </div>
 
     </mu-dialog>
-        <!-- <h3 class="music-title">歌曲列表</h3> -->
+
     <div class="search-box">
-      <!-- <div class="search-left-list"></div>
-      <div class="search-right-box">
-        <mu-text-field
-          class="clearMarginbottom"
-          color="#ff8a65"
-          v-model="title"
-          label="在此处输入歌曲名"
-          label-float
-        ></mu-text-field>
-        <mu-button round color="success">搜索</mu-button>
-      </div> -->
+     
       歌曲列表
     </div>
 
@@ -116,16 +106,17 @@
         @change="currentPageChange()"
         :current.sync="currentPage"
       ></mu-pagination>
+      <musiclist></musiclist>
     </div>
     </div>
   
   </div>
 </template>
 <script>
-
+import musiclist from './musicList'
 export default {
   components:{
-
+musiclist
   },
   data() {
     return {
