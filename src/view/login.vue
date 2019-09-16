@@ -40,7 +40,7 @@ export default {
         console.log(res);
       });
     },
-    enter() { this.$router.push({ path: "/main" });
+    enter() { this.$router.push({ path: "/index/home" });
       if (this.username == "" && this.password == "") {
         this.$message({
           message: "用户名和密码不能为空",

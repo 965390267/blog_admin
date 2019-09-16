@@ -11,39 +11,39 @@ const router= new Router({
       component: ()=>import('@/view/login'),
     },
     {
-      path:'/main',
-      name:'main',
+      path:'/index',
+      name:'index',
       component:  ()=>import('@/view/main'),
       children:[{
-        path: '/main',
-        name: 'allmessage',
+        path: '/index/home',
+        name: 'home',
         component: ()=>import('@/view/subpage/allmessage')
       },{
-        path: '/main/sendarticle',
+        path: '/index/sendarticle',
         name: 'sendarticle',
         component: ()=>import('@/view/subpage/sendarticle')
       },{
-        path: '/main/articlelist',
+        path: '/index/articlelist',
         name: 'articlelist',
         component: ()=>import('@/view/subpage/articlelist')
       },{
-        path: '/main/photo',
+        path: '/index/photo',
         name: 'photo',
         component: ()=>import('@/view/subpage/photo')
       },{
-        path: '/main/liuyan',
+        path: '/index/liuyan',
         name: 'liuyan',
         component: ()=>import('@/view/subpage/liuyan')
       },{
-        path: '/main/music',
+        path: '/index/music',
         name: 'music',
         component: ()=>import('@/view/subpage/music')
       },{
-        path: '/main/weiyu',
+        path: '/index/weiyu',
         name: 'weiyu',
         component: ()=>import('@/view/subpage/weiyu')
       },{
-        path: '/main/setting',
+        path: '/index/setting',
         name: 'setting',
         component: ()=>import('@/view/subpage/setting')
       }

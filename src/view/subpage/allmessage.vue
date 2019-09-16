@@ -5,9 +5,12 @@
      <div class="pic-list" :style="{background: 'url('+carouselImg1+')',backgroundSize:'cover'}"></div>
     </mu-paper>-->
     <Card></Card>
+<CPU></CPU>
     <div class="main-middle">
       <div class="commetns">
           <div class="echart">
+
+
  <div id="myChart"></div>
         <div id="myChart2"></div>
           </div>
@@ -24,17 +27,20 @@
 <script>
 // 引入echarts
 import echarts from "echarts";
+// import '../../../node_modules/echarts/map/js/china.js' // 引入中国地图数据
+import '../../../node_modules/echarts/map/js/province/yunnan.js' // 引入北京地图数据
 import Card from "@/components/totalmessage/card";
-
+import CPU from "@/components/totalmessage/cpu_memory";
 import Comments from "@/components/totalmessage/comments";
 import Aside from "@/components/totalmessage/aside";
 export default {
   components: {
     Card,
+    CPU,
     Comments,
     Aside
   },
-
+  props: ["userJson"],
   data() {
     return {
       visitnums: "",
@@ -45,6 +51,86 @@ export default {
     };
   },
   methods: {
+        chinaConfigure() {
+
+        var dom = document.getElementById("myChart3");
+        let myChart = echarts.init(dom); //这里是为了获得容器所在位置    
+        window.onresize = myChart.resize;
+
+        myChart.setOption({ // 进行相关配置
+          backgroundColor: "#02AFDB",
+          tooltip: {}, // 鼠标移到图里面的浮动提示框
+          dataRange: {
+            show: false,
+            min: 0,
+            max: 1000,
+            text: ['High', 'Low'],
+            realtime: true,
+            calculable: true,
+            color: ['orangered', 'yellow', 'lightskyblue']
+          },
+          geo: { // 这个是重点配置区
+            map: '云南', // 表示中国地图
+            roam: true,
+            label: {
+              normal: {
+                show: true, // 是否显示对应地名
+                textStyle: {
+                  color: 'rgba(0,0,0,0.4)'
+                }
+              }
+            },
+            itemStyle: {
+              normal: {
+                borderColor: 'rgba(0, 0, 0, 0.2)'
+              },
+              emphasis: {
+                areaColor: null,
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                shadowBlur: 20,
+                borderWidth: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          },
+          series: [ {//根据数据展示点，并显示为波纹效果
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                zlevel: 2,
+                //波纹效果
+                rippleEffect: {
+                    period: 2,
+                    brushType: 'stroke',
+                    scale: 3
+                }},
+            {
+              name: '启动次数', // 浮动框的标题
+              type: 'map',
+              geoIndex: 0,
+              data: [{
+                "name": "北京",
+                "value": 599
+              }, {
+                "name": "上海",
+                "value": 142
+              }, {
+                "name": "黑龙江",
+                "value": 44
+              }, {
+                "name": "深圳",
+                "value": 92
+              }, {
+                "name": "湖北",
+                "value": 810
+              }, {
+                "name": "四川",
+                "value": 453
+              }]
+            }
+          ]
+        })
+      } ,
     drawEchart() {
       let myChart1 = echarts.init(document.getElementById("myChart"));
    
@@ -148,6 +234,7 @@ const option = {
 //var dom = document.getElementById("myChart3");
  // 基于准备好的dom，初始化echarts实例
 
+
     },
     getusermes() {
       // this.$http.get("api/login").then(res => {
@@ -162,6 +249,7 @@ const option = {
 
     // this.drawEchart()
     // }
+    this.chinaConfigure()
     this.drawEchart();
     // this.getusermes();
   }

@@ -35,7 +35,7 @@
               <div class="item-overlay">
 
            </div>
-            <img class="music-thumb" src='http://www.templatesy.com/demo/68/images/m5.jpg'  />
+            <img class="music-thumb" src='http://www.templatesy.com/demo/68/images/p4.jpg'  />
           </div>
           <div class="pader-v">
             <h4 class="singname">Tempered Song</h4>
@@ -49,7 +49,7 @@
 <style  scoped>
 .music-list-item {
     float: left;
-  width: 20%;
+  width: 220px;
 
   margin-left: 10px;
   margin-right: 10px;
@@ -58,7 +58,7 @@
      position: relative;
 }
 .music-thumb{
-    width: 100%;
+    width: 220px;
       height: 300px;
     border-radius: 4px;
 }
