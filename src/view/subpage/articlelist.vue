@@ -122,7 +122,6 @@ export default {
       })
         .then(() => {
           var articleId = row._id;
-
           this.$http
             .post("api/Authentication/deletearticle", { artid: articleId })
             .then(res => {

@@ -69,9 +69,7 @@
 <style scoped>
 .taskcard {
   position: relative;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
@@ -84,10 +82,8 @@
 .taskcard .card-header {
   background: none;
   padding: 0.5rem 1.5rem;
-  display: -ms-flexbox;
   display: flex;
   min-height: 60px;
-  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -102,7 +98,6 @@
 }
 .taskcard .card-body {
   position: relative;
-  -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 25px 25px;
 }
@@ -134,7 +129,6 @@
 
 .taskcard .progress {
   position: relative;
-  display: -ms-flexbox;
   display: flex;
   height: 1rem;
   overflow: hidden;
@@ -143,11 +137,8 @@
   border-radius: 3px;
 }
 .taskcard .progress-bar {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -ms-flex-pack: center;
   justify-content: center;
   color: #fff;
   text-align: center;
@@ -185,10 +176,6 @@
     rgb(98, 58, 162) 0%,
     rgb(249, 119, 84) 100%
   );
-  -webkit-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
     inset 0 -2px 6px rgba(98, 58, 162, 0.4);
 }
@@ -206,12 +193,8 @@
     rgb(0, 242, 254) 37%,
     rgb(30, 99, 195) 69%
   );
-  -webkit-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(51, 51, 204, 0.4) !important;
+    inset 0 -2px 6px rgba(51, 51, 204, 0.4) ;
 }
 .chat-details .orange {
   background-color: rgb(251, 176, 52);
@@ -227,12 +210,8 @@
     rgb(241, 211, 19) 37%,
     rgb(251, 176, 52) 69%
   );
-  -webkit-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(98, 58, 162, 0.4) !important;
+    inset 0 -2px 6px rgba(98, 58, 162, 0.4);
 }
 .chat-details .green {
   background-color: rgb(43, 194, 83);
@@ -248,10 +227,7 @@
     rgb(43, 194, 83) 37%,
     rgb(84, 240, 84) 69%
   );
-  -webkit-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+
   box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
     inset 0 -2px 6px rgba(0, 0, 0, 0.4);
 }

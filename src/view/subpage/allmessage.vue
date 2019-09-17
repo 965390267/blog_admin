@@ -9,13 +9,12 @@
     <div class="main-middle">
       <div class="commetns">
           <div class="echart">
-
-
- <div id="myChart"></div>
+        <div id="myChart"></div>
         <div id="myChart2"></div>
           </div>
        <!-- <Comments></Comments> -->
-        <div  id='myChart3'></div>
+        <!-- <div  id='myChart3'></div> -->
+        <ChinaMap></ChinaMap>
       </div>
 
       <div class="rightaside-wrap">
@@ -27,18 +26,18 @@
 <script>
 // 引入echarts
 import echarts from "echarts";
-// import '../../../node_modules/echarts/map/js/china.js' // 引入中国地图数据
-import '../../../node_modules/echarts/map/js/province/yunnan.js' // 引入北京地图数据
 import Card from "@/components/totalmessage/card";
 import CPU from "@/components/totalmessage/cpu_memory";
 import Comments from "@/components/totalmessage/comments";
 import Aside from "@/components/totalmessage/aside";
+import ChinaMap from "@/components/totalmessage/china_Map";
 export default {
   components: {
     Card,
     CPU,
     Comments,
-    Aside
+    Aside,
+    ChinaMap
   },
   props: ["userJson"],
   data() {
@@ -55,9 +54,8 @@ export default {
 
         var dom = document.getElementById("myChart3");
         let myChart = echarts.init(dom); //这里是为了获得容器所在位置    
-        window.onresize = myChart.resize;
-
-        myChart.setOption({ // 进行相关配置
+        window.onresize = myChart.resize; 
+var option2={ // 进行相关配置
           backgroundColor: "#02AFDB",
           tooltip: {}, // 鼠标移到图里面的浮动提示框
           dataRange: {
@@ -129,7 +127,8 @@ export default {
               }]
             }
           ]
-        })
+        }
+        myChart.setOption(option2)
       } ,
     drawEchart() {
       let myChart1 = echarts.init(document.getElementById("myChart"));
@@ -155,8 +154,7 @@ const option = {
 
       let myChart2 = echarts.init(document.getElementById("myChart2"));
       let option2 = {
-        backgroundColor: "#fff",
-
+        backgroundColor: "transparent",
         title: {
           text: "浏览器访问占比",
           left: "center",
@@ -215,7 +213,7 @@ const option = {
             itemStyle: {
               normal: {
                 color: "#c23531",
-                shadowBlur: 200,
+                shadowBlur: 0,
                 shadowColor: "rgba(0, 0, 0, 0.5)"
               }
             },
@@ -230,28 +228,13 @@ const option = {
       };
       myChart2.setOption(option2, true);
       /* *************************************************************************** */
-      // let myChart3 =echarts.init(document.getElementById('myChart3'))
-//var dom = document.getElementById("myChart3");
- // 基于准备好的dom，初始化echarts实例
-
-
     },
     getusermes() {
-      // this.$http.get("api/login").then(res => {
-      //   if (res.data.code == 200) {
-      //     this.visitnums = res.data.data[0].visitnums;
-      //   }
-      // });
+
     }
   },
   mounted() {
-    // window.onresize=()=>{
-
-    // this.drawEchart()
-    // }
-    this.chinaConfigure()
     this.drawEchart();
-    // this.getusermes();
   }
 };
 </script>
