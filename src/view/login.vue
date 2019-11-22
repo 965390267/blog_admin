@@ -80,15 +80,7 @@ export default {
                 type: "success"
               });
             }
-          }).catch(err=>{
-            console.log(err);
-            
-             this.$message({
-                message: "服务器错误",
-                type: "warning"
-              });
           })
-
         //    this.$router.push({path:'/main'})
       }
     }
